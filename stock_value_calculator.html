@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Stock Intrinsic Value Calculator</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<script data-ad-client="ca-pub-4784308249961342" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Stock Intrinsic Value Calculator <p class="label-input100">Developed by Bohmian</p>									
+				</span>
+				
+				<center>
+				<p ><b>Show Instructions</b></p>				
+					<label class="switch">
+					  <input id= "instructions-switch" type="checkbox" checked onchange="toggle_instructions()">
+					  <span class="slider"> </span>
+					 
+					</label>
+					</center><br><br>
+				<div class = "instructions">
+				<p>The following financial statements data can be found in <a href="http://finance.yahoo.com">Yahoo Finance</a>.
+				<br><br>
+				Free cash flow is from 'Cash Flow Statement' (annual, TTM).
+				<br><br>
+				Cash and Short Term Investments and Total Debt is from 'Balance Sheet Statement' (most recent quarter).
+				<br><br>
+				</p>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate="Free Cash Flow is required">
+					<span class="label-input100">Free Cash Flow</span>
+					<input class="input100" id='cf' type="number" placeholder=" ">
+					<span class="focus-input100"></span>
+				</div>
+
+			
+					
+				<div class="wrap-input100 validate-input" data-validate="Cash and Short Term Investments is required">
+					<span class="label-input100">Cash and Short Term Investments</span>
+					<input class="input100" id='cash' type="number" placeholder=" ">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate="Total Debt is required">
+					<span class="label-input100">Total Debt<br>(Add Short Term + Long Term Debt)</span>
+					<input class="input100" id='debt' type="number" placeholder=" ">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class = "instructions">
+				<p>The following fundamental data (including Number of Shares Outstanding) can be found in <a href="https://finviz.com/">Finviz</a>.
+				EPS Growth Rate (Years 1 to 5) is 'EPS Next 5Y' in the table in Finviz.
+				<br><br>
+				Estimate the EPS Growth Rate (Years 6 to 10) yourself, a conservative approach could be half the EPS Growth Rate (Years 1 to 5).
+				<br><br>
+				Estimate the EPS Growth Rate (Years 11 to 20) yourself, a conservative approach could be the average inflation rate of 4%.
+				<br><br>
+				</p>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate="EPS Growth Rate is required">
+					<span class="label-input100">EPS Growth Rate % (Years 1 to 5)</span>
+					<input class="input100" id='EPS5y' type="number" placeholder=" ">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate="EPS Growth Rate is required">
+					<span class="label-input100">EPS Growth Rate % (Years 6 to 10)</span>
+					<input class="input100" id='EPS6y10y' type="number" placeholder=" ">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate="EPS Growth Rate is required">
+					<span class="label-input100">EPS Growth Rate % (Years 11 to 20)</span>
+					<input class="input100" id='EPS11y20y'type="number" placeholder=" ">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class = "instructions">
+				<p>	<br>			
+				To fill in the Discount Rate, you can check out the 'Beta' of your stock from FinViz table. 
+				<br>
+				<br>Then use the following as a guide:
+				
+				<table id="results">
+				  <tr>
+					<th>Beta</th>
+					<th>Discount Rate</th>
+				  </tr>
+				  <tr>
+					<td>Beta < 0.80</td><td>5%</td>
+				  </tr>
+				  <tr>
+					<td>0.8 ≤ Beta < 1.0</td><td>6%</td>
+				  </tr>
+				  <tr>
+					<td>0.8 ≤ Beta < 1.0</td><td>6%</td>
+				  </tr>
+				  <tr>
+					<td>1.0 ≤ Beta < 1.1</td><td>6.5%</td>
+				  </tr>
+				  <tr>
+					<td>1.1 ≤ Beta < 1.2</td><td>7%</td>
+				  </tr>
+				  <tr>
+					<td>1.2 ≤ Beta < 1.3</td><td>7.5%</td>
+				  </tr>
+				  <tr>
+					<td>1.3 ≤ Beta < 1.5</td><td>8%</td>
+				  </tr>
+				  <tr>
+					<td>1.5 ≤ Beta < 1.6</td><td>8.5%</td>
+				  </tr>
+				  <tr>
+					<td>Beta > 1.6</td><td>9%</td>
+				  </tr>
+				</table>
+				</div>
+				<br><br>
+				
+				<div class="wrap-input100 validate-input" data-validate="Discount Rate is required">
+					<span class="label-input100">Discount Rate (%)</span>
+					<input class="input100" id = "discount_rate" type="number" placeholder=" ">
+					<span class="focus-input100"></span>
+				</div>
+				
+				
+				<div class="wrap-input100 validate-input" data-validate="Number of Shares Outstanding is required">
+					<span class="label-input100">Number of Shares Outstanding</span>
+					<input class="input100" id = "number_shares" type="number" placeholder=" ">
+					<span class="focus-input100"></span>
+				</div>
+				
+
+
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button type="button" class="contact100-form-btn" onclick="calculateAll();">
+							<span>
+								CALCULATE!
+															</span>
+						</button>
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="table-output">
+					<table  id="results" style="width:100%; border: 1px solid black;" class="wrap-input100 validate-input">
+					  <tr>
+						<th colspan="3">CALCULATED RESULTS</th>
+					  </tr>						  
+					  <tr>
+						<th>Year</th>
+						<th>Projected Cashflow</th>
+						<th>Discounted to Present Value</th>
+					  </tr>					  
+					  
+				<tr>
+						<th>1</th>
+						<td id = "cf1">$0              </td>
+						<td id = "dv1">$0              </td>
+					  </tr>
+					  <tr>
+						<th>2</th>
+						<td id = "cf2">$0              </td>
+						<td id = "dv2">$0              </td>
+					  </tr>
+					  <tr>
+						<th>3</th>
+						<td id = "cf3">$0              </td>
+						<td id = "dv3">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>4</th>
+						<td id = "cf4">$0              </td>
+						<td id = "dv4">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>5</th>
+						<td id = "cf5">$0              </td>
+						<td id = "dv5">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>6</th>
+						<td id = "cf6">$0              </td>
+						<td id = "dv6">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>7</th>
+						<td id = "cf7">$0              </td>
+						<td id = "dv7">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>8</th>
+						<td id = "cf8">$0              </td>
+						<td id = "dv8">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>9</th>
+						<td id = "cf9">$0              </td>
+						<td id = "dv9">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>10</th>
+						<td id = "cf10">$0              </td>
+						<td id = "dv10">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>11</th>
+						<td id = "cf11">$0              </td>
+						<td id = "dv11">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>12</th>
+						<td id = "cf12">$0              </td>
+						<td id = "dv12">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>13</th>
+						<td id = "cf13">$0              </td>
+						<td id = "dv13">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>14</th>
+						<td id = "cf14">$0              </td>
+						<td id = "dv14">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>15</th>
+						<td id = "cf15">$0              </td>
+						<td id = "dv15">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>16</th>
+						<td id = "cf16">$0              </td>
+						<td id = "dv16">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>17</th>
+						<td id = "cf17">$0              </td>
+						<td id = "dv17">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>18</th>
+						<td id = "cf18">$0              </td>
+						<td id = "dv18">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>19</th>
+						<td id = "cf19">$0              </td>
+						<td id = "dv19">$0              </td>
+					  </tr>
+					  <tr>
+					  	<th>20              </th>
+						<td id = "cf20">$0              </td>
+						<td id = "dv20">$0              </td>
+					  </tr>
+					   <tr>
+					  	<th>Total</th>
+						<td bgcolor="yellow" id = "cf_total">$0              </td>
+						<td bgcolor="yellow" id = "dv_total">$0              </td>
+					  </tr>
+					</table>
+					
+					<table id="results">
+					   <tr>
+					  	<th >Instrinsic Value of 1 Share (without cash and debt)</th>																
+					  </tr>
+					  <tr>
+						<td  bgcolor="lightyellow" id = "intrinsic_without_cashdebt">$0              </td>
+					</tr>
+					</table>
+					<br>
+					<table id="results">
+					   <tr>
+					  	<th >Instrinsic Value of 1 Share</th>																
+					  </tr>
+					  <tr>
+						<td  bgcolor="lightyellow" id = "intrinsic">$0              </td>
+					</tr>
+					</table>
+					
+				</div><br><br>
+				
+				<div>					
+					<center><a href="https://www.buymeacoffee.com/bohmian" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 178px !important;" ></a></center>	
+				</div>
+		</form>
+	</div>
+
+<script>
+
+var cf_field = document.getElementById("cf");
+var cash_field = document.getElementById("cash");
+var debt_field = document.getElementById("debt");
+var discount_rate_field = document.getElementById("discount_rate");
+var EPS5y_field = document.getElementById("EPS5y");
+var EPS6y10y_field = document.getElementById("EPS6y10y");
+var EPS11y20y_field = document.getElementById("EPS11y20y");
+var number_shares_field = document.getElementById("number_shares");
+
+var cf = document.getElementById("cf").value;
+
+var cf1_text = document.getElementById("cf1");
+var cf2_text = document.getElementById("cf2");
+var cf3_text = document.getElementById("cf3");
+var cf4_text = document.getElementById("cf4");
+var cf5_text = document.getElementById("cf5");
+var cf6_text = document.getElementById("cf6");
+var cf7_text = document.getElementById("cf7");
+var cf8_text = document.getElementById("cf8");
+var cf9_text = document.getElementById("cf9");
+var cf10_text = document.getElementById("cf10");
+var cf11_text = document.getElementById("cf11");
+var cf12_text = document.getElementById("cf12");
+var cf13_text = document.getElementById("cf13");
+var cf14_text = document.getElementById("cf14");
+var cf15_text = document.getElementById("cf15");
+var cf16_text = document.getElementById("cf16");
+var cf17_text = document.getElementById("cf17");
+var cf18_text = document.getElementById("cf18");
+var cf19_text = document.getElementById("cf19");
+var cf20_text = document.getElementById("cf20");
+
+var dv1_text = document.getElementById("dv1");
+var dv2_text = document.getElementById("dv2");
+var dv3_text = document.getElementById("dv3");
+var dv4_text = document.getElementById("dv4");
+var dv5_text = document.getElementById("dv5");
+var dv6_text = document.getElementById("dv6");
+var dv7_text = document.getElementById("dv7");
+var dv8_text = document.getElementById("dv8");
+var dv9_text = document.getElementById("dv9");
+var dv10_text = document.getElementById("dv10");
+var dv11_text = document.getElementById("dv11");
+var dv12_text = document.getElementById("dv12");
+var dv13_text = document.getElementById("dv13");
+var dv14_text = document.getElementById("dv14");
+var dv15_text = document.getElementById("dv15");
+var dv16_text = document.getElementById("dv16");
+var dv17_text = document.getElementById("dv17");
+var dv18_text = document.getElementById("dv18");
+var dv19_text = document.getElementById("dv19");
+var dv20_text = document.getElementById("dv20");
+
+var cf_total_text = document.getElementById("cf_total");
+var dv_total_text = document.getElementById("dv_total");
+
+var intrinsic_text = document.getElementById("intrinsic");
+
+var instructions = document.getElementsByClassName("instructions");
+
+if(document.getElementById("instructions-switch").checked==true){	
+	for(var i = 0; i < instructions.length; i++){
+		instructions[i].style.display = 'inline';
+	}
+}
+else {
+	for(var i = 0; i < instructions.length; i++){
+		instructions[i].style.display = 'none';
+	}
+}
+
+
+
+function toggle_instructions() {
+
+	if(document.getElementById("instructions-switch").checked==true){	
+		for(var i = 0; i < instructions.length; i++){
+			instructions[i].style.display = 'inline';
+		}
+	}
+	else {
+		for(var i = 0; i < instructions.length; i++){
+			instructions[i].style.display = 'none';
+		}
+	}
+}
+
+function calculateAll() {
+	var cf = cf_field.value;
+
+	var cash = cash_field.value;
+	var debt = debt_field.value;
+	var r = discount_rate_field.value/100;
+	var EPS5y = EPS5y_field.value/100;
+	var EPS6y10y = EPS6y10y_field.value/100;
+	var EPS11y20y = EPS11y20y_field.value/100;
+	var number_shares = number_shares_field.value;
+
+	
+	cf1 = Math.round(cf*(1+EPS5y)**1)
+	cf2 = Math.round(cf*(1+EPS5y)**2)
+	cf3 = Math.round(cf*(1+EPS5y)**3)
+	cf4 = Math.round(cf*(1+EPS5y)**4)
+	cf5 = Math.round(cf*(1+EPS5y)**5)
+	cf6 = Math.round(cf5*(1+EPS6y10y)**1)
+	cf7 = Math.round(cf5*(1+EPS6y10y)**2)
+	cf8 = Math.round(cf5*(1+EPS6y10y)**3)
+	cf9 = Math.round(cf5*(1+EPS6y10y)**4)
+	cf10 = Math.round(cf5*(1+EPS6y10y)**5)
+	cf11 = Math.round(cf10*(1+EPS11y20y)**1)
+	cf12 = Math.round(cf10*(1+EPS11y20y)**2)
+	cf13 = Math.round(cf10*(1+EPS11y20y)**3)
+	cf14 = Math.round(cf10*(1+EPS11y20y)**4)
+	cf15 = Math.round(cf10*(1+EPS11y20y)**5)
+	cf16 = Math.round(cf10*(1+EPS11y20y)**6)
+	cf17 = Math.round(cf10*(1+EPS11y20y)**7)
+	cf18 = Math.round(cf10*(1+EPS11y20y)**8)
+	cf19 = Math.round(cf10*(1+EPS11y20y)**9)
+	cf20 = Math.round(cf10*(1+EPS11y20y)**10)
+	
+	dv1 = Math.round(cf1/(1+r)**1)
+	dv2 = Math.round(cf2/(1+r)**2)
+	dv3 = Math.round(cf3/(1+r)**3)
+	dv4 = Math.round(cf4/(1+r)**4)
+	dv5 = Math.round(cf5/(1+r)**5)
+	dv6 = Math.round(cf6/(1+r)**6)
+	dv7 = Math.round(cf7/(1+r)**7)
+	dv8 = Math.round(cf8/(1+r)**8)
+	dv9 = Math.round(cf9/(1+r)**9)
+	dv10 = Math.round(cf10/(1+r)**10)
+	dv11 = Math.round(cf11/(1+r)**11)
+	dv12 = Math.round(cf12/(1+r)**12)
+	dv13 = Math.round(cf13/(1+r)**13)
+	dv14 = Math.round(cf14/(1+r)**14)
+	dv15 = Math.round(cf15/(1+r)**15)
+	dv16 = Math.round(cf16/(1+r)**16)
+	dv17 = Math.round(cf17/(1+r)**17)
+	dv18 = Math.round(cf18/(1+r)**18)
+	dv19 = Math.round(cf19/(1+r)**19)
+	dv20 = Math.round(cf20/(1+r)**20)
+	
+	cf1_text.innerHTML = '$' + cf1
+	cf2_text.innerHTML = '$' + cf2
+	cf3_text.innerHTML = '$' + cf3
+	cf4_text.innerHTML = '$' + cf4
+	cf5_text.innerHTML = '$' + cf5
+	cf6_text.innerHTML = '$' + cf6
+	cf7_text.innerHTML = '$' + cf7
+	cf8_text.innerHTML = '$' + cf8
+	cf9_text.innerHTML = '$' + cf9
+	cf10_text.innerHTML = '$' + cf10
+	cf11_text.innerHTML = '$' + cf11
+	cf12_text.innerHTML = '$' + cf12
+	cf13_text.innerHTML = '$' + cf13
+	cf14_text.innerHTML = '$' + cf14
+	cf15_text.innerHTML = '$' + cf15
+	cf16_text.innerHTML = '$' + cf16
+	cf17_text.innerHTML = '$' + cf17
+	cf18_text.innerHTML = '$' + cf18
+	cf19_text.innerHTML = '$' + cf19
+	cf20_text.innerHTML = '$' + cf20	
+	
+	dv1_text.innerHTML = '$' + dv1
+	dv2_text.innerHTML = '$' + dv2
+	dv3_text.innerHTML = '$' + dv3
+	dv4_text.innerHTML = '$' + dv4
+	dv5_text.innerHTML = '$' + dv5
+	dv6_text.innerHTML = '$' + dv6
+	dv7_text.innerHTML = '$' + dv7
+	dv8_text.innerHTML = '$' + dv8
+	dv9_text.innerHTML = '$' + dv9
+	dv10_text.innerHTML = '$' + dv10
+	dv11_text.innerHTML = '$' + dv11
+	dv12_text.innerHTML = '$' + dv12
+	dv13_text.innerHTML = '$' + dv13
+	dv14_text.innerHTML = '$' + dv14
+	dv15_text.innerHTML = '$' + dv15
+	dv16_text.innerHTML = '$' + dv16
+	dv17_text.innerHTML = '$' + dv17
+	dv18_text.innerHTML = '$' + dv18
+	dv19_text.innerHTML = '$' + dv19
+	dv20_text.innerHTML = '$' + dv20		
+	
+	var cf_total = cf1 + cf2 + cf3 + cf4 + cf5 + cf6 + cf7 + cf8 + cf9 + cf10 + cf11 + cf12 + cf13 + cf14 + cf15 + cf16 + cf17 + cf18 + cf19 + cf20
+	var dv_total = dv1 + dv2 + dv3 + dv4 + dv5 + dv6 + dv7 + dv8 + dv9 + dv10 + dv11 + dv12 + dv13 + dv14 + dv15 + dv16 + dv17 + dv18 + dv19 + dv20
+	
+	cf_total_text.innerHTML = '$' + Math.round(cf_total)
+	dv_total_text.innerHTML = '$' + Math.round(dv_total)
+	
+	var intrinsic_without_cashdebt = (dv_total)/number_shares
+	var intrinsic = (cash - debt + dv_total)/number_shares	
+	
+	intrinsic_without_cashdebt = Math.round((intrinsic_without_cashdebt) * 100) / 100
+	intrinsic = Math.round((intrinsic) * 100) / 100
+		
+	document.getElementById("intrinsic_without_cashdebt").innerHTML = '$' + intrinsic_without_cashdebt
+	document.getElementById("intrinsic").innerHTML = '$' + intrinsic
+	
+		
+		}
+
+</script>
+
+</body>
+
+<style>
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: Poppins, sans-serif;
+}
+
+/*---------------------------------------------*/
+a {
+	font-family: Poppins;
+	font-size: 18px;
+	line-height: 1.7;
+	color: #666666;
+	text-decoration: underline;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/*---------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+	margin: 0px;
+}
+
+p {
+	font-family: Poppins;
+	font-size: 18px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 5px;
+}
+
+ul, li {
+	margin: 0px;
+	list-style-type: none;
+}
+
+
+/*---------------------------------------------*/
+input {
+	outline: none;
+	border: none;
+}
+
+textarea {
+  outline: none;
+  border: none;
+}
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+input:focus:-ms-input-placeholder { color:transparent; }
+
+textarea:focus::-webkit-input-placeholder { color:transparent; }
+textarea:focus:-moz-placeholder { color:transparent; }
+textarea:focus::-moz-placeholder { color:transparent; }
+textarea:focus:-ms-input-placeholder { color:transparent; }
+
+input::-webkit-input-placeholder { color: #adadad;}
+input:-moz-placeholder { color: #adadad;}
+input::-moz-placeholder { color: #adadad;}
+input:-ms-input-placeholder { color: #adadad;}
+
+textarea::-webkit-input-placeholder { color: #adadad;}
+textarea:-moz-placeholder { color: #adadad;}
+textarea::-moz-placeholder { color: #adadad;}
+textarea:-ms-input-placeholder { color: #adadad;}
+
+/*---------------------------------------------*/
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+iframe {
+	border: none !important;
+}
+
+
+/*---------------------------------------------*/
+.container {
+	max-width: 1200px;
+}
+
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Contact ]*/
+
+.container-contact100 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #a64bf4;
+  background: -webkit-linear-gradient(45deg, #00dbde, #fc00ff);
+  background: -o-linear-gradient(45deg, #00dbde, #fc00ff);
+  background: -moz-linear-gradient(45deg, #00dbde, #fc00ff);
+  background: linear-gradient(45deg, #00dbde, #fc00ff);
+  
+}
+
+.wrap-contact100 {
+  width: 1000px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 42px 55px 45px 55px;
+}
+
+
+/*------------------------------------------------------------------
+[ Form ]*/
+
+.contact100-form {
+  width: 100%;
+}
+
+.contact100-form-title {
+  display: block;
+  font-family: Poppins;
+  font-weight: bold;
+  font-size: 39px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.contact100-form-heading {
+  font-family: Poppins;
+  font-weight: bold;
+  font-size: 24px;
+  color: #333333;
+  line-height: 1.8;
+  padding-left: 5px;
+}
+
+
+
+
+/*------------------------------------------------------------------
+[ Input ]*/
+
+.wrap-input100 {
+  width: 95%;
+  position: relative;
+  border-bottom: 2px solid #d9d9d9;
+  padding-bottom: 13px;
+  margin-bottom: 27px;
+}
+
+.label-input100 {
+  font-family: Poppins;
+  font-weight: bold;
+  font-size: 20px;
+  color: #666666;
+  line-height: 1.5;
+  padding-left: 5px;
+}
+
+.table-output {
+  font-family: Poppins;
+  font-size: 20px;
+  color: #666666;
+  line-height: 1.5;
+  padding-left: 5px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.input100 {
+  display: block;
+  width: 100%;
+  background: transparent;
+  font-family: Poppins;
+  font-size: 18px;
+  color: #333333;
+  line-height: 1.2;
+  padding: 0 5px;
+}
+
+.focus-input100 {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.focus-input100::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  background: #7f7f7f;
+}
+
+
+/*---------------------------------------------*/
+input.input100 {
+  height: 40px;
+}
+
+
+textarea.input100 {
+  min-height: 110px;
+  padding-top: 9px;
+  padding-bottom: 13px;
+}
+
+
+.input100:focus + .focus-input100::before {
+  width: 100%;
+}
+
+.has-val.input100 + .focus-input100::before {
+  width: 100%;
+}
+
+
+/*------------------------------------------------------------------
+[ Button ]*/
+.container-contact100-form-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 13px;
+}
+
+.wrap-contact100-form-btn {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.contact100-form-bgbtn {
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  background: #a64bf4;
+  background: -webkit-linear-gradient(left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  background: -o-linear-gradient(left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  background: -moz-linear-gradient(left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  background: linear-gradient(left, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  top: 0;
+  left: -100%;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.contact100-form-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+
+  font-family: Poppins;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.wrap-contact100-form-btn:hover .contact100-form-bgbtn {
+  left: 0;
+}
+
+.contact100-form-btn i {
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.contact100-form-btn:hover i {
+  -webkit-transform: translateX(10px);
+  -moz-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  -o-transform: translateX(10px);
+  transform: translateX(10px);
+}
+
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media (max-width: 576px) {
+  .wrap-contact100 {
+    padding: 72px 15px 65px 15px;
+  }
+}
+
+
+
+/*------------------------------------------------------------------
+[ Alert validate ]*/
+
+.validate-input {
+  position: relative;
+}
+
+.alert-validate::before {
+  content: attr(data-validate);
+  position: absolute;
+  max-width: 70%;
+  background-color: #fff;
+  border: 1px solid #c80000;
+  border-radius: 2px;
+  padding: 4px 25px 4px 10px;
+  top: 58%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 2px;
+  pointer-events: none;
+
+  font-family: Poppins;
+  color: #c80000;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+.alert-validate::after {
+  content: "\f06a";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  color: #c80000;
+  font-size: 16px;
+  top: 58%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 8px;
+}
+
+.alert-validate:hover:before {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .alert-validate::before {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Restyle Select2 ]*/
+
+.select2-container {
+  display: block;
+  max-width: 100% !important;
+  width: auto !important;
+}
+
+.select2-container .select2-selection--single {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  height: 40px;
+  outline: none;
+  position: relative;
+}
+
+/*------------------------------------------------------------------
+[ in select ]*/
+.select2-container .select2-selection--single .select2-selection__rendered {
+  font-family: Poppins;
+  font-size: 18px;
+  color: #333333;
+  line-height: 1.2;
+  padding-left: 5px ;
+  background-color: transparent;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.select2-selection__arrow b {
+  display: none;
+}
+
+.select2-selection__arrow::before {
+  content: '';
+  display: block;
+  
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-bottom: 5px solid #999999;
+  margin-bottom: 2px;
+}
+
+.select2-selection__arrow::after {
+  content: '';
+  display: block;
+  
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-top: 5px solid #999999;
+}
+
+/*------------------------------------------------------------------
+[ Dropdown option ]*/
+.select2-container--open .select2-dropdown {
+  z-index: 1251;
+  border: 0px solid #e5e5e5;
+  border-radius: 0px;
+  background-color: white;
+
+  box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.select2-dropdown--above {top: -30px;}
+.select2-dropdown--below {top: 8px;}
+
+.select2-container .select2-results__option[aria-selected] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.select2-container .select2-results__option[aria-selected="true"] {
+  background: #a64bf4;
+  background: -webkit-linear-gradient(right, #00dbde, #fc00ff);
+  background: -o-linear-gradient(right, #00dbde, #fc00ff);
+  background: -moz-linear-gradient(right, #00dbde, #fc00ff);
+  background: linear-gradient(right, #00dbde, #fc00ff);
+  color: white;
+}
+
+.select2-container .select2-results__option--highlighted[aria-selected] {
+  background: #a64bf4;
+  background: -webkit-linear-gradient(right, #00dbde, #fc00ff);
+  background: -o-linear-gradient(right, #00dbde, #fc00ff);
+  background: -moz-linear-gradient(right, #00dbde, #fc00ff);
+  background: linear-gradient(right, #00dbde, #fc00ff);
+  color: white;
+}
+
+.select2-results__options {
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  color: #333333;
+  line-height: 1.2;
+}
+
+.select2-search--dropdown .select2-search__field {
+  border: 1px solid #aaa;
+  outline: none;
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  color: #333333;
+  line-height: 1.2;
+}
+
+#results {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#results td, #results th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#results tr:nth-child(even){background-color: #f2f2f2;}
+
+#results tr:hover {background-color: #ddd;}
+
+#results th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+</style>
+
+</html>
