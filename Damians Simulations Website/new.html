@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+  <p id="desc">hello test</p>
+    <canvas id="myCanvas" style="border:1px solid #000000;" width="578" height="500" border="1px"></canvas>
+	
+    <script>
+	var x_pos, y_pos;
+		
+	var mouseDown = 0;
+	document.onmousedown = function() { 
+		mouseDown = 1;
+	}
+	document.onmouseup = function() {
+		mouseDown = 0;
+	}
+      function writeMessage(canvas, message) {
+        var context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.font = '18pt Calibri';
+        context.fillStyle = 'black';
+        context.fillText(message, 10, 25);
+      }
+      function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+     
+          x_pos = evt.clientX - rect.left,
+          y_pos = evt.clientY - rect.top
+      
+      }
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+	  
+	  function move_inside(evt){
+		if (mouseDown){
+			var mousePos = getMousePos(canvas, evt);
+			var message = 'Mouse position: ' + x_pos + ',' + y_pos;
+			writeMessage(canvas, message);
+		}
+	}
+	
+      canvas.addEventListener('mousemove', move_inside, false);
+	  
+	  canvas.addEventListener("touchmove", draw, false);
+	  canvas.addEventListener("touchstart", draw, false);
+   
+   
+ 
+    function draw() {
+        if(canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+		var rect = canvas.getBoundingClientRect();
+		x_pos = event.touches[0].pageX - rect.left;
+		y_pos = event.touches[0].pageY - rect.top;
+        ctx.fillRect (event.touches[0].pageX - rect.left, event.touches[0].pageY - rect.top, 5, 5);
+		document.getElementById('desc').innerHTML = x_pos + "," + y_pos;
+      }
+    }
+	
+
+    </script>
+  </body>
+</html>

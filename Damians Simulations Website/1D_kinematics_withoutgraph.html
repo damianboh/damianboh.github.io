@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+
+<!--
+    Copyright 2017, Simulations and Website Template by Damian Boh
+    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+	Please visit http://creativecommons.org/licenses/by-nc-sa/4.0/ for more information.
+-->
+
+<html>
+<head>
+	<title>1D Motion with Constant Acceleration</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico" >
+</head>
+<body style="background-color:#c0c0c0;">
+<div class="header_container" >
+<div class="wrapper">
+<img  class = "header_title2" src="images/icon.svg" style="width:36px;">&nbsp;&nbsp;
+<span class = "header_title" >Damian's Physics Simulations</span>
+<span class="header_email">Email: damianboh.ck@gmail.com</span>
+</div>
+</div>
+<div class="header_row">
+	<a class="toggleMenu" href="#">Menu</a>
+</div>
+<div class="header_row sticky">
+<ul class="wrapper nav">
+	<li>
+		<a href="index.html">Home</a>
+	</li>
+
+	<li>
+		<a href="simulations.html">Simulations List</a>
+	</li>
+	<li  class="test">
+		<a href="#">Mechanics</a>
+		<ul>
+			<li>
+				<a href="1D_kinematics.html">1D Motion with Constant Acceleration</a>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test1</a></li>
+					<li><a href="#">Test2</a></li>
+					<li><a href="#">Test3</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		
+	<li>
+		<a href="#">Light</a>
+		<ul>
+			<li>
+				<a href="#">Ray Diagram of Convex Lens</a>
+			</li>
+			<li>
+				<a href="#">Refraction</a>
+			</li>
+			
+		</ul>
+	</li>
+	<li>
+		<a href="#">Waves</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#">Thermal Physics</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#">Electricity & Magnetism</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="contact.html">Contact</a>
+	</li>
+
+</ul>
+
+</div>
+	
+<!------------------------------------------------------------ body here --------------------------------->
+
+	<div class="simulation_container" id="whole_body" >
+	<br>
+    <!--<h1 style="font-size:24px; text-align:center;">Kinematics: 1D Motion with Constant Acceleration</h1>-->
+	<p class="simulation_headers" > Kinematics: 1D Motion with Constant Acceleration</p>
+	<center>
+	Enter exactly 3 values below to solve for the other 2 values.
+	Define positive to be right or upwards, negative to be left or downwards.
+	Solution and explanations will appear below after calculation.
+	</center>
+	<br>
+	
+	<div style="text-align:left; -webkit-text-size-adjust:100%;">
+		   <table align="center" border="0" cellpadding="1" cellspacing="1" style="font-weight: bold;font-size:95%;">
+			<tr>
+				<td>Initial Velocity u (ms<sup>-1</sup>):</td>
+				<td><input type="number" id="ip_initial_u" value="" oninput="showSpeed();" onchange="showSpeed();"></td>
+			</tr>
+			<tr>			
+				<td>Final Velocity v (ms<sup>-1</sup>): </td>
+				<td><input type="number" id="ip_final_v" value="" oninput="showSpeed();" onchange="showSpeed();"></td>
+			</tr>
+			<tr>			
+				<td>Acceleration a (ms<sup>-2</sup>): </td>
+				<td><input type="number" id="ip_acceleration_a" value="" oninput="showSpeed();" onchange="showSpeed();"></td>
+			</tr>
+			<tr>			
+				<td>Time t (s): </td>
+				<td><input type="number" id="ip_time_t" value="" oninput="showSpeed();" onchange="showSpeed();"></td>
+			</tr>
+			<tr>			
+				<td>Displacement s (m): </td>
+				<td><input type="number" id="ip_displacement_s" value="" oninput="showSpeed();" onchange="showSpeed();"></td>
+			</tr>
+		   </table>
+			<br>
+			<center>
+			<input type="button" value="Calculate" onclick="calculateAll();">
+			<input type="button" value="Reset" onclick="resetAll();">
+			</center>
+
+    </div>
+	
+	<br>
+	
+    <div align="center" style="width:screen.width; margin-left:auto; margin-right:auto; ">
+        <!--<img src="NewtonDrawing.jpg" width="500" height="500" style="position:absolute;">-->
+        <canvas id="trailCanvas" border="100"  height="120" style="position:absolute;width:screen.width;"></canvas>
+        <canvas id="theCanvas"  height="120" style="position:relative;width:screen.width;">
+            Canvas not supported; please update your browser.
+        </canvas>
+		<br>
+		<br>
+		<div id="animation_current_status" style="font-size:80%;">
+			Current Displacement s: 0m <br>
+			Current Time t: 0s <br>
+		</div>
+		<br>
+		<center>		
+		Animation Speed: 
+        <input type="range" id="animation_speed" min="40" max="150" step="1" value="60" 
+                oninput="showSpeed();" onchange="showSpeed();">
+		<input type="button" value="Play Animation" onclick="calculateAll();">
+		<br>(Positive is assumed to be right for the animation above.)
+		</center>
+
+    </div>
+	
+	<div id="solution_checkboxes">
+	<br>
+	<input type="checkbox" id="checkbox1" style="zoom:1.5;" name="Solution1" onchange="toggleSolution1();"><font style="color:blue;font-weight: bold;font-size:120%;">Solution 1</font></input>
+	<input type="checkbox" id="checkbox2" style="zoom:1.5;" name="Solution2" onchange="toggleSolution2();"><font style="color:blue;font-weight: bold;font-size:120%;">Solution 2</font></input>
+	<br>
+	</div>
+	
+	<h3 id="solution_header" style="color:blue;font-weight: bold;font-size:120%;">Solution:<br></h3>
+	<div id="display_calculated_values" style="color:blue;font-weight: bold;font-size:120%;">
+	<br>
+	</div>
+	
+	<div id="display_solution_not_valid" style="color:blue;font-weight: bold;font-size:120%;">
+	<div style="color:red;"><u>SOLUTION NOT VALID AS TIME t < 0.</u></div> 
+	Steps for calculating this are still shown below for reference
+	but remember this is not a valid solution so please check your 
+	entered values again.
+	<br>
+	</div>
+	
+	
+	
+	<div id="display_four_equations">
+		<h3>Four Equations of Motion</h3>
+		<div style="font-size:150%;font-weight:normal;">
+		v = u + at <br>
+		v<sup>2</sup> = u<sup>2</sup> + 2as <br>
+		s = ut + <sup>1</sup>/<sub>2</sub> at<sup>2</sup><br>
+		s = <sup>1</sup>/<sub>2</sub> (u+v) t<br>
+		</div>
+	</div>
+	
+	<div id="display_explanation_header" style="font-size:100%; font-weight: normal;">
+		<h3>Explanation and Steps</h3>
+		Generally, you know the values of 3 variables. First look for the equation that
+		contains all 3 variables that you know in it. Each equation of motion has exactly 4 variables,
+		if you know 3 of the variables you can calculate the 4th variable inside this equation directly.
+		Choose the equation that is most easy to manipulate, for example you should avoid equations with
+		squares if possible unless you have no other choice.
+	<br><br>
+	</div>
+	
+	<div id="display_explanation_1" style="font-size:100%;font-weight: normal;color:blue;"></div>
+	
+	<div id="display_2_solutions_v_notice" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	<b>Notice that v can take on 2 values, one positive and one negative</b> as it is the square root of u<sup>2</sup> + 2as.
+	(Recall that squaring a number and its negative will give the same result.) 
+	The other value of v is in the other solution which you can view by clicking on the corresponding checkbox above.
+	Each of the solutions will give rise to a t value each. One of the solutions might not be valid if the 
+	t calculated in the next step is negative as time cannot be negative. If both values of v give positive t then 
+	there are 2 valid solutions.
+	</div>
+	<div id="display_2_solutions_u_notice" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	<b>Notice that u can take on 2 values, one positive and one negative</b> as it is the square root of v<sup>2</sup> - 2as.
+	(Recall that squaring a number and its negative will give the same result.) 
+	The other value of u is in the other solution which you can view by clicking on the corresponding checkbox above.
+	Each of the solutions will give rise to a t value each. One of the solutions might not be valid if the 
+	t calculated in the next step is negative as time cannot be negative. If both values of u give positive t then 
+	there are 2 valid solutions.
+	</div>
+	
+	<div id="display_explanation_middle" style="font-size:100%;font-weight: normal;">
+	<br><br>
+		So now you have 4 variables. Now look for an equation that contains
+		the final variable that you still do not know. The values of the other 3 variables in this equation
+		should be something you know already as you only have one unknown variable at this point. Again try
+		to look for the equation that is easiest to manipulate.
+	<br><br>
+	</div>
+	
+	<div id="display_explanation_2" style="font-size:100%;font-weight: normal;color:blue;"></div>
+	
+	<div id="display_2_v_t_interpretation" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	<b><u>Physically what does it mean to have 2 valid solutions of v and t for the same u, a and s?</u></b><br>
+	The object starts off with initial velocity u and continues travelling with acceleration a. On the way it passes by 
+	the point with displacement s with a certain velocity v<sub>1</sub>, 
+	at a certain time t<sub>1</sub>. It travels further before turning back to the same point at the same displacement s,
+	at a later time t<sub>2</sub> with a velocity v<sub>2</sub>. But this time it is travelling in the opposite direction 
+	as the previous time when it passes through this point as it has turned backward and changed direction. Hence this v<sub>2</sub>
+	is not the same as the previous v<sub>1</sub>. <br><br>Acceleration a is the same throughout the whole motion and the object passes through 
+	the same point of displacement s at two different times and two different velocities. Hence for the same u, a and s 
+	there are 2 sets of solutions: v<sub>1</sub>,t<sub>1</sub> and v<sub>2</sub>, t<sub>2</sub>. Play the animation for both solutions to 
+	see how the same point is reached at 2 different times.
+	<br><br>
+	</div>
+	<div id="display_2_u_t_interpretation" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	<b><u>Physically what does it mean to have 2 valid solutions of u and t for the same v, a and s?</u></b><br>
+	In one of the solutions, the object starts off with initial velocity u<sub>1</sub> and travels towards the point at displacement s at an acceleration a in the same direction.  
+	It reaches displacement s at t<sub>1</sub> with final velocity v. In the other solution, the object starts off with a different initial velocity 
+	u<sub>2</sub> which moves <i>away</i> from the point at displacement s at first. (Meaning u<sub>2</sub> is in the opposite direction and sign as u<sub>1</sub>.)
+	It travels with the same acceleration a directed towards s, hence at some point it would slow down and change direction to move towards displacement s.
+	It will reach displacement s after passing through its starting point, at time t<sub>2</sub> but with same final velocity v<sub>1</sub><br><br>
+	In both cases the object reaches the same displacement s with 2 different start initial velocities u, and arrive at two different times.
+	Hence there are 2 sets of solutions: u<sub>1</sub>,t<sub>1</sub> and u<sub>2</sub>, t<sub>2</sub>. Play the animation for both solutions to 
+	see how the same point is reached at 2 different times but with 2 different initial velocities u in opposite directions.
+	<br><br>
+	</div>	
+	
+	
+	<div id="description_of_motion" style="font-size:100%;font-weight: normal;color:red;">
+		<h3><font style="color:black;">Description of Motion</font></h3>
+		<div id="motion_description1"></div>
+		<div id="motion_description2"></div>
+		<div id="motion_description3"></div>
+	<br><br>
+	</div>
+	
+	
+	<div id="inference_of_motion" style="font-size:100%;font-weight: normal;color:red;">
+		<h3><font style="color:black;">How is each description statement inferred?</font></h3>
+		   <table align="center" border="1" cellpadding="1" cellspacing="1" style="font-weight: normal;">
+			<tr>			
+				<td style="font-size:120%;"><b>Description of Motion</b></td>
+				<td style="font-size:120%;"><b>Inference</b></td>
+			</tr>
+			<tr>
+				<td><div id="motion_description1a"></div></td>
+				<td><div id="motion_inference1"></div></td>
+			</tr>
+			<tr>			
+				<td><div id="motion_description2a"></div></td>
+				<td><div id="motion_inference2"></div></td>
+			</tr>
+			<tr>			
+				<td><div id="motion_description3a"></div></td>
+				<td><div id="motion_inference3"></div></td>
+			</tr>
+			</table>
+			<br>
+    </div>
+	<br><br>
+	<div id="device_size" class="device_size_info" style="font-size:80%;font-weight:"></div>
+	
+	
+	<!--
+    <div style="text-align:center; -webkit-text-size-adjust:100%;">
+        <a class="customButton" href="javascript:void(0)" onclick="fireProjectile();" ontouchstart="">Fire!</a>
+        &nbsp;&nbsp;&nbsp;
+        Initial speed = 
+        <span id="speedReadout" style="display:inline-block; width:2.3em; text-align:right;">3000</span> m/s
+        <input type="range" id="speedSlider" min="0" max="8000" step="100" value="3000" 
+                oninput="showSpeed();" onchange="showSpeed();">
+        &nbsp;&nbsp;&nbsp;
+        <a class="customButton" href="javascript:void(0)" onclick="clearTrails();" ontouchstart="">Clear</a>
+    </div>
+	-->
+	
+    
+
+    <script>
+	
+	
+
+        var theCanvas = document.getElementById("theCanvas");   // for drawing the projectile
+        var theContext = theCanvas.getContext("2d");
+        var trailCanvas = document.getElementById("trailCanvas");   // for drawing trails
+        var trailContext = trailCanvas.getContext("2d");
+		var ip_initial_u = document.getElementById("ip_initial_u");
+		var ip_final_v = document.getElementById("ip_final_v");
+		var ip_acceleration_a = document.getElementById("ip_acceleration_a");
+		var ip_time_t = document.getElementById("ip_time_t");
+		var ip_displacement_s = document.getElementById("ip_displacement_s");
+        var animation_speed = document.getElementById("animation_speed");
+        var u, v, a, t, s;                           // kinematic variables
+		var u_pos, u_neg, v_pos, v_neg, t1, t2;             // to account for 2 solutions when solving sqrt of u^2 and v^2
+		var number_filled;							// number of fields with values entered
+		var t_current = 0;							// current time of object motion when animation is playing
+		var s_current;
+        var timer;                                  // for animation timing
+		var max_displacement;						// maximum displacement from starting point throughout whole motion
+		
+		
+		var animation_current_status = document.getElementById("animation_current_status");
+		var solution_header = document.getElementById("solution_header");
+		var display_calculated_values = document.getElementById("display_calculated_values");
+		var display_explanation_header = document.getElementById("display_explanation_header");
+		var display_explanation_1 = document.getElementById("display_explanation_1");
+		var display_explanation_middle = document.getElementById("display_explanation_middle");
+		var display_explanation_2 = document.getElementById("display_explanation_2");
+		var display_solution_not_valid = document.getElementById("display_solution_not_valid");
+		var solution_checkboxes = document.getElementById("solution_checkboxes");
+		var display_2_solutions_u_notice = document.getElementById("display_2_solutions_u_notice");
+		var display_2_solutions_v_notice = document.getElementById("display_2_solutions_v_notice");
+		var display_2_u_t_interpretation = document.getElementById("display_2_u_t_interpretation");
+		var display_2_v_t_interpretation = document.getElementById("display_2_v_t_interpretation");
+		var checkbox1 = document.getElementById("checkbox1");
+		var checkbox2 = document.getElementById("checkbox2");
+		
+		
+		// used for description of motion in words
+		var initial_velocity_direction;
+		var initial_velocity_sign;
+		var final_velocity_direction;
+		var final_velocity_sign;
+		var decelerate_accelerate;
+		var acceleration_u_opp_same_sign;
+		var v_u_opp_same_sign;
+		var description_of_motion = document.getElementById("description_of_motion");
+		var motion_description1 = document.getElementById("motion_description1");
+		var motion_description2 = document.getElementById("motion_description2");
+		var motion_description3 = document.getElementById("motion_description3");
+		var motion_inference1 = document.getElementById("motion_inference1");
+		var motion_inference2 = document.getElementById("motion_inference2");
+		var motion_inference3 = document.getElementById("motion_inference3");
+		
+		var device_size = document.getElementById("device_size");
+
+		checkbox1.checked = true;
+		resizeCanvas();
+		//resize_whole_body();
+		resetAll();
+		display_calculated_values.style.display="none";
+		
+		
+		device_size.innerHTML="Device width: " + window.innerWidth + ", height: " + window.innerHeight;
+		
+		function resizeCanvas(){
+			if (window.innerWidth<550){
+				theCanvas.width=0.98*window.innerWidth;
+				trailCanvas.width=0.98*window.innerWidth;
+			}
+			else {
+				theCanvas.width=550;
+				trailCanvas.width=550;
+			}
+		}
+		
+		function resize_whole_body(){
+			if (window.innerWidth<550){
+				whole_body.style.width=window.innerWidth;
+				
+			}
+			else {
+				whole_body.width=600;
+				
+			}
+		}
+		
+		function clearAll() {
+			window.clearTimeout(timer);     // first clear any motion in progress
+			theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);
+			trailContext.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+			drawObjectCenter();
+			solution_header.style.display="none";
+			display_calculated_values.style.display="none";
+			display_explanation_header.style.display="none";
+			display_explanation_1.style.display="none";
+			display_explanation_middle.style.display="none";
+			display_explanation_2.style.display="none";
+			display_solution_not_valid.style.display="none";
+			display_2_solutions_u_notice.style.display="none";
+			display_2_solutions_v_notice.style.display="none";
+			display_2_u_t_interpretation.style.display="none";
+			display_2_v_t_interpretation.style.display="none";
+			description_of_motion.style.display="none";
+			inference_of_motion.style.display="none";
+			
+			solution_checkboxes.style.display="none";
+			
+			animation_current_status.innerHTML="Current Displacement s: 0m<br/>Current Time t: 0s";
+		
+
+		}
+		
+		function clearAllValues(){
+			ip_initial_u.value="";
+			ip_final_v.value="";
+			ip_acceleration_a.value="";
+			ip_time_t.value="";
+			ip_displacement_s.value="";
+		}
+		
+		function resetAll(){
+			clearAll();
+			clearAllValues();
+		}
+		
+        // calculate all the u,v,a,t,s values based on 3 inputs
+        function calculateAll() {
+			clearAll();
+            window.clearTimeout(timer);     // first clear any motion in progress
+			theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);
+			trailContext.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+			drawObjectCenter(); // make sure object is still there since we are not drawing it in animation
+			u = Number(ip_initial_u.value);
+			v = Number(ip_final_v.value);
+			a = Number(ip_acceleration_a.value);
+			t = Number(ip_time_t.value);
+			s = Number(ip_displacement_s.value);
+			getNumberFieldsFilled();
+			if (number_filled != 3) {
+				alert("Please enter exactly 3 values, you have entered " + number_filled + " values.");
+			}
+			else {
+
+				
+				if (ip_initial_u.value!="" && ip_final_v.value!="" && ip_acceleration_a.value!=""){
+					t = (v-u)/a;
+					s = 0.5*(u+v)*t;
+					display_calculated_values.innerHTML="Time t = " + t + "s" +"<br/>"+ "Displacement s = " + s + "m";
+					display_calculated_values.style.display="inline";
+					display_explanation_1.innerHTML="In this case, substitute your known u, v and a values into the equation <br/> <br/> <b>v = u + at</b> <br/> <br/> to get time t = " + t + "s.<br/><br/>Now you know u, v, a and t.";
+					display_explanation_2.innerHTML="In this case, the simplest way to get s (final unknown variable) is to substitute u, v and t into the equation <br/> <br/> <b>s = <sup>1</sup>/<sub>2</sub> (u+v) t</b> <br/> <br/> to get displacement s = " + s + "m.";
+				}
+				if (ip_initial_u.value!="" && ip_final_v.value!="" && ip_time_t.value!=""){
+					a = (v-u)/t;
+					s = 0.5*(u+v)*t;
+					display_calculated_values.innerHTML="Acceleration a = " + a + "ms<sup>-2</sup>" +"<br/>"+ "Displacement s = " + s + "m";
+					display_calculated_values.style.display="inline";
+					display_explanation_1.innerHTML="In this case, substitute your known u, v and t values into the equation <br/> <br/> <b>v = u + at</b> <br/> <br/> to get acceleration a = " + a + "ms<sup>-2</sup>.<br/><br/>Now you know u, v, a and t.";
+					display_explanation_2.innerHTML="In this case, the simplest way to get s (final unknown variable) is to substitute u, v and t into the equation <br/> <br/> <b>s = <sup>1</sup>/<sub>2</sub> (u+v) t</b> <br/> <br/> to get displacement s = " + s + "m.";
+				}
+				if (ip_initial_u.value!="" && ip_final_v.value!="" && ip_displacement_s.value!=""){
+					t = 2*s/(u+v);
+					a = (v-u)/t;
+					display_calculated_values.innerHTML="Time t = " + t + "s" +"<br/>"+ "Acceleration a = " + a + "ms<sup>-2</sup>";
+					display_calculated_values.style.display="inline";
+					display_explanation_1.innerHTML="In this case, substitute your known u, v and s values into the equation <br/> <br/> <b>s = <sup>1</sup>/<sub>2</sub> (u+v) t</b> <br/> <br/> to get acceleration t = " + t + "s.<br/><br/>Now you know u, v, s and t.";
+					display_explanation_2.innerHTML="In this case, the simplest way to get a (final unknown variable) is to substitute u, v and t into the equation <br/> <br/> <b>v = u + at</b> <br/> <br/> to get acceleration a = " + a + "ms<sup>-2</sup>.";
+				}
+				if (ip_initial_u.value!="" && ip_acceleration_a.value!="" && ip_time_t.value!=""){
+					v = u + a*t;
+					s = 0.5*(u+v)*t;
+					display_calculated_values.innerHTML="Final velocity v = " + v + "ms<sup>-1</sup>" +"<br/>"+ "Displacement s = " + s + "m";
+					display_calculated_values.style.display="inline";
+					display_explanation_1.innerHTML="In this case, substitute your known u, a and t values into the equation <br/> <br/> <b>v = u + at</b> <br/> <br/> to get final velocity v = " + v + "ms<sup>-1</sup>.<br/><br/>Now you know u, v, a and t.";
+					display_explanation_2.innerHTML="In this case, the simplest way to get s (final unknown variable) is to substitute u, v and t into the equation <br/> <br/> <b>s = <sup>1</sup>/<sub>2</sub> (u+v) t</b> <br/> <br/> to get displacement s = " + s + "m.";
+				}
+				if (ip_initial_u.value!="" && ip_time_t.value!="" && ip_displacement_s.value!=""){
+					v = 2*s/t - u;
+					a = (v-u)/t;
+					display_calculated_values.innerHTML="Final velocity v = " + v + "ms<sup>-1</sup>" +"<br/>"+ "Acceleration a = " + a + "ms<sup>-2</sup>";
+					display_calculated_values.style.display="inline";
+					display_explanation_1.innerHTML="In this case, substitute your known u, t and s values into the equation <br/> <br/> <b>s = <sup>1</sup>/<sub>2</sub> (u+v) t</b> <br/> <br/> to get final velocity v = " + v + "ms<sup>-1</sup>.<br/><br/>Now you know u, v, t and s.";
+					display_explanation_2.innerHTML="In this case, the simplest way to get a (final unknown variable) is to substitute u, v and t into the equation <br/> <br/> <b>v = u + at</b> <br/> <br/> to get acceleration a = " + a + "ms<sup>-2</sup>.";
+				}
+				if (ip_final_v.value!="" && ip_acceleration_a.value!="" && ip_time_t.value!=""){
+					u = v - a*t;
+					s = 0.5*(u+v)*t;
+					display_calculated_values.innerHTML="Initial velocity u = " + u + "ms<sup>-1</sup>" +"<br/>"+ "Displacement s = " + s + "m";
+					display_calculated_values.style.display="inline";
+					display_explanation_1.innerHTML="In this case, substitute your known v, a and t values into the equation <br/> <br/> <b>v = u +at</b> <br/> <br/> to get initial velocity u = " + u + "ms<sup>-1</sup>.<br/><br/>Now you know u, v, a and t.";
+					display_explanation_2.innerHTML="In this case, the simplest way to get s (final unknown variable) is to substitute u, v and t into the equation <br/> <br/> <b>s = <sup>1</sup>/<sub>2</sub> (u+v) t</b> <br/> <br/> to get displacement s = " + s + "m.";
+				}
+				if (ip_final_v.value!="" && ip_time_t.value!="" && ip_displacement_s.value!=""){
+					u = 2*s/t - v;
+					a = (v-u)/t;
+					display_calculated_values.innerHTML="Initial velocity u = " + u + "ms<sup>-1</sup>" +"<br/>"+ "Acceleration a = " + a + "ms<sup>-2</sup>";
+					display_calculated_values.style.display="inline";
+					display_explanation_1.innerHTML="In this case, substitute your known v, t and s values into the equation <br/> <br/> <b>s = <sup>1</sup>/<sub>2</sub> (u+v) t</b> <br/> <br/> to get initial velocity u = " + u + "ms<sup>-1</sup>.<br/><br/>Now you know u, v, t and s.";
+					display_explanation_2.innerHTML="In this case, the simplest way to get a (final unknown variable) is to substitute u, v and t into the equation <br/> <br/> <b>v = u + at</b> <br/> <br/> to get acceleration a = " + a + "ms<sup>-2</sup>.";
+				}
+				if (ip_acceleration_a.value!="" && ip_time_t.value!="" && ip_displacement_s.value!=""){
+					u = (s - 0.5*a*t*t)/t;
+					v = u + a*t;
+					display_calculated_values.innerHTML="Initial velocity u = " + u + "ms<sup>-1</sup>" +"<br/>"+ "Final velocity v = " + v + "ms<sup>-1</sup>";
+					display_calculated_values.style.display="inline";
+					display_explanation_1.innerHTML="In this case, substitute your known a, t and s values into the equation <br/> <br/> <b>s = ut + <sup>1</sup>/<sub>2</sub> at<sup>2</sup></b> <br/> <br/> to get initial velocity u = " + u + "ms<sup>-1</sup>.<br/><br/>Now you know u, a, t and s.";
+					display_explanation_2.innerHTML="In this case, the simplest way to get v (final unknown variable) is to substitute u, a and t into the equation <br/> <br/> <b>v = u + at</b> <br/> <br/> to get final velocity v = " + v + "ms<sup>-1</sup>.";
+				}
+				if (ip_initial_u.value!="" && ip_acceleration_a.value!="" && ip_displacement_s.value!=""){
+					if ((u*u + 2*a*s) < 0){
+						errorEvent();
+					}
+					else {
+						v_pos = Math.abs(Math.sqrt(u*u + 2*a*s));
+						v_neg = -v_pos;
+						t1 = 2*s/(u+v_pos);
+						t2 = 2*s/(u+v_neg);
+						solution_checkboxes.style.display="inline";
+						show_uas_vas_solution();
+					}
+					
+				}
+				if (ip_final_v.value!="" && ip_acceleration_a.value!="" && ip_displacement_s.value!=""){
+					if ((v*v - 2*a*s) < 0){
+						errorEvent();
+					}
+					else {
+						u_pos = Math.abs(Math.sqrt(v*v - 2*a*s));
+						u_neg = -u_pos;
+						t1 = 2*s/(u_pos+v);
+						t2 = 2*s/(u_neg+v);
+						solution_checkboxes.style.display="inline";
+						show_uas_vas_solution();
+					}
+					
+				}
+				
+				
+				
+				if (!(ip_initial_u.value!="" && ip_acceleration_a.value!="" && ip_displacement_s.value!="") && !(ip_final_v.value!="" && ip_acceleration_a.value!="" && ip_displacement_s.value!="")){
+					solution_header.style.display="inline";
+					display_explanation_header.style.display="inline";
+					display_explanation_middle.style.display="inline";
+					display_explanation_1.style.display="inline";
+					display_explanation_2.style.display="inline";
+					t_current = 0;
+					// find max displacement so you can scale the animation accordingly to maximize canvas space 
+					if (u*v<0){
+						max_displacement = Math.max(Math.abs(s),Math.abs(u*u/(2*a))); 
+					}
+					else {
+						max_displacement = Math.abs(s); 
+					}
+					if (t<0) {
+						display_solution_not_valid.style.display="inline";
+						animation_current_status.innerHTML="Invalid solution. No animation.";
+					}
+					else{
+						labelDisplacement();
+						moveObject();
+						generate_description();
+					}
+				}
+			}
+            
+
+        }
+		
+		function labelDisplacement() { // label the appropriate displacement on the animation diagram to show scale
+		trailContext.font = "12px Arial";
+		trailContext.textAlign="center";
+		trailContext.fillText("s=" + max_displacement.toPrecision(3) + "m",trailCanvas.width/2+trailCanvas.width/2*0.8,trailCanvas.height*0.9);
+		trailContext.fillText("s=-" + max_displacement.toPrecision(3) + "m",trailCanvas.width/2-trailCanvas.width/2*0.8,trailCanvas.height*0.9);
+		trailContext.fillText("3 s.f.",trailCanvas.width/2+trailCanvas.width/2*0.8,trailCanvas.height*0.9+12);
+		trailContext.fillText("3 s.f.",trailCanvas.width/2-trailCanvas.width/2*0.8,trailCanvas.height*0.9+12);
+		
+		trailContext.setLineDash([2, 2]);
+		trailContext.beginPath();
+		trailContext.moveTo(trailCanvas.width/2+trailCanvas.width/2*0.8,trailCanvas.height*0.2);
+		trailContext.lineTo(trailCanvas.width/2+trailCanvas.width/2*0.8,trailCanvas.height*0.8);
+		trailContext.moveTo(trailCanvas.width/2-trailCanvas.width/2*0.8,trailCanvas.height*0.2);
+		trailContext.lineTo(trailCanvas.width/2-trailCanvas.width/2*0.8,trailCanvas.height*0.8);
+		trailContext.stroke();
+		}
+		
+		
+		function getNumberFieldsFilled() {
+			number_filled = 0;
+			if (ip_initial_u.value!="")
+			{
+				number_filled++;
+			}
+			if (ip_final_v.value!="")
+			{
+				number_filled++;
+			}
+			if (ip_acceleration_a.value!="")
+			{
+				number_filled++;
+			}
+			if (ip_time_t.value!="")
+			{
+				number_filled++;
+			}
+			if (ip_displacement_s.value!="")
+			{
+				number_filled++;
+			}
+		}
+
+		
+		// move the object by a single time step:
+        function moveObject() {
+            var dt = t/100;             // total animation time you want divided by total time of motion
+			t_current += dt;
+			if (t_current > t) {t_current = t;}
+			s_current = u*t_current + 0.5*a*t_current*t_current;
+			drawObject();
+            if (t_current < t) {   // if motion isn't complete
+                timer = window.setTimeout(moveObject, 1000/Number(animation_speed.value));     // come back (call same function again) in 1/60 second (default)
+            }            
+        }
+		
+		// draw the object at its current location:
+        function drawObject() {
+			animation_current_status.innerHTML="Current Displacement s: " + s_current + "m<br/>Current Time t: " + t_current + "s";
+            theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);
+			var pixelX = theCanvas.width/2 + s_current/max_displacement*theCanvas.width/2*0.8;
+            var pixelY = theCanvas.height/2;
+            theContext.beginPath();
+            theContext.arc(pixelX, pixelY, 20, 0, 2*Math.PI); // change first 2 arguments to pixelX and pixelY
+			var theGradient = theContext.createRadialGradient(pixelX-1, pixelY-2, 1, pixelX, pixelY, 20); // make ball 'shiny' with gradient
+            theGradient.addColorStop(0, "#ffd0d0");
+            theGradient.addColorStop(1, "#ff0000");
+            theContext.fillStyle = theGradient;
+            theContext.fill();
+			/*
+            trailContext.fillStyle = "black"; // for drawing trail
+            trailContext.fillRect(pixelX-0.5, pixelY-0.5, 1, 1); // for drawing trail
+			*/
+        }
+		
+		// draw the object and starting line at center:
+        function drawObjectCenter() {
+            theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);
+            var pixelX = theCanvas.width/2;
+            var pixelY = theCanvas.height/2;
+            
+			//draw object which is a ball in this case
+			theContext.beginPath();
+            theContext.arc(pixelX, pixelY, 20, 0, 2*Math.PI); 
+			var theGradient = theContext.createRadialGradient(pixelX-1, pixelY-2, 1, pixelX, pixelY, 20); // make ball 'shiny' with gradient
+            theGradient.addColorStop(0, "#ffd0d0");
+            theGradient.addColorStop(1, "#ff0000");
+            theContext.fillStyle = theGradient;
+            theContext.fill();
+			
+			
+			//draw line at center to indicate object starting position
+			trailContext.setLineDash([5, 0]);
+			trailContext.beginPath(); 
+			trailContext.moveTo(theCanvas.width/2, theCanvas.height*0.2);
+			trailContext.lineTo(theCanvas.width/2, theCanvas.height*0.8);
+			trailContext.stroke();
+		}
+
+  
+		// run this when calculations cannot be done
+		function errorEvent() {
+			alert("Error, solution cannot be calculated. This case may not be valid. Please re-enter values.");
+			clearAll();
+			
+		}
+		
+		function toggleSolution1(){
+			if (checkbox1.checked==true){
+				checkbox2.checked=false;
+			}
+			if (checkbox1.checked==false){
+				checkbox2.checked=true;
+			}
+			show_uas_vas_solution();
+		}
+		
+		function toggleSolution2(){
+			if (checkbox2.checked==true){
+				checkbox1.checked=false;
+			}
+			if (checkbox2.checked==false){
+				checkbox1.checked=true;
+			}
+
+			show_uas_vas_solution();
+		}
+		
+		function show_uas_vas_solution() {
+			window.clearTimeout(timer);     // first clear any motion in progress
+			clearAll();
+			solution_checkboxes.style.display="inline";
+			drawObjectCenter(); // make sure object is still there since we are not drawing it in animation
+			if (ip_initial_u.value!="" && ip_acceleration_a.value!="" && ip_displacement_s.value!=""){
+				display_2_solutions_v_notice.style.display="inline";
+				if (checkbox1.checked==true){
+					v = v_pos;
+					t = t1;
+				}
+				else if (checkbox2.checked==true){
+					v = v_neg;
+					t = t2
+				}
+				if (t1>=0 && t2>=0){
+				display_2_v_t_interpretation.style.display="inline";
+				}
+				else {
+				display_2_v_t_interpretation.style.display="none";
+				}
+				display_calculated_values.innerHTML="Final velocity v = " + v + "ms<sup>-1</sup>" +"<br/>"+ "Time t = " + t + "s";
+				display_calculated_values.style.display="inline";
+				display_explanation_1.innerHTML="In this case, substitute your known u, a and s values into the equation <br/> <br/> <b>v<sup>2</sup> = u<sup>2</sup> + 2as <br></b> <br/> <br/> to get final velocity v = " + v + "ms<sup>-1</sup>.<br/><br/>Now you know u, v, a and s.";
+				if (t<0){
+					display_explanation_2.innerHTML="In this case, the simplest way to get t (final unknown variable) is to substitute u, v and s into the equation <br/> <br/> <b>s = <sup>1</sup>/<sub>2</sub> (u+v) t<br></b> <br/> <br/> to get time t = " + t + "s. Since time is negative solution is invalid. REJECT THIS VALUE OF v AND t.";
+				}
+				else{
+					display_explanation_2.innerHTML="In this case, the simplest way to get t (final unknown variable) is to substitute u, v and s into the equation <br/> <br/> <b>s = <sup>1</sup>/<sub>2</sub> (u+v) t<br></b> <br/> <br/> to get time t = " + t + "s.";
+				}
+			}
+			else if (ip_final_v.value!="" && ip_acceleration_a.value!="" && ip_displacement_s.value!=""){
+				display_2_solutions_u_notice.style.display="inline";
+				if (checkbox1.checked==true){
+					u = u_pos;
+					t = t1;
+				}
+				else if (checkbox2.checked==true){
+					u = u_neg;
+					t = t2
+				}
+			
+				if (t1>=0 && t2>=0){
+				display_2_u_t_interpretation.style.display="inline";
+				}
+				else {
+				display_2_u_t_interpretation.style.display="none";
+				}
+				display_calculated_values.innerHTML="Initial velocity u = " + u + "ms<sup>-1</sup>" +"<br/>"+ "Time t = " + t + "s";
+				display_calculated_values.style.display="inline";
+				display_explanation_1.innerHTML="In this case, substitute your known v, a and s values into the equation <br/> <br/> <b>v<sup>2</sup> = u<sup>2</sup> + 2as <br></b> <br/> <br/> to get initial velocity u = " + u + "ms<sup>-1</sup>.<br/><br/>Now you know u, v, a and s.";
+				if (t<0){
+					display_explanation_2.innerHTML="In this case, the simplest way to get t (final unknown variable) is to substitute u, v and s into the equation <br/> <br/> <b>s = <sup>1</sup>/<sub>2</sub> (u+v) t<br></b> <br/> <br/> to get time t = " + t + "s. Since time is negative solution is invalid. REJECT THIS VALUE OF v AND t.";
+				}
+				else{
+					display_explanation_2.innerHTML="In this case, the simplest way to get t (final unknown variable) is to substitute u, v and s into the equation <br/> <br/> <b>s = <sup>1</sup>/<sub>2</sub> (u+v) t<br></b> <br/> <br/> to get time t = " + t + "s.";
+				}
+			}
+				solution_header.style.display="inline";
+				display_explanation_header.style.display="inline";
+				display_explanation_middle.style.display="inline";				
+				display_explanation_1.style.display="inline";
+				display_explanation_2.style.display="inline";
+				t_current = 0;
+				
+				// find max displacement so you can scale the animation accordingly to maximize canvas space 
+				max_displacement = Math.max(Math.abs(s),Math.abs(u*u/(2*a))); 
+				
+				if (t<0) {
+					display_solution_not_valid.style.display="inline";
+					animation_current_status.innerHTML="Invalid solution. No animation.";
+				}
+				else{
+					labelDisplacement();
+					moveObject();
+					generate_description();
+				}
+				
+				
+		}
+		
+		function generate_description() {
+			if (u>0){
+				initial_velocity_direction="moving to the right/upwards";
+			}
+			else if (u<0){
+				initial_velocity_direction="moving to the left/downwards";
+			}
+			else if (u==0){
+				initial_velocity_direction="at rest";
+			}
+			if (u>0){
+				initial_velocity_sign="positive";
+			}
+			else if (u<0){
+				initial_velocity_sign="negative";
+			}
+			else if (u==0){
+				initial_velocity_sign="zero";
+			}
+			if (v>0){
+				final_velocity_direction="moving to the right/upwards";
+			}
+			else if (v<0){
+				final_velocity_direction="moving to the left/downwards";
+			}
+			else if (v==0){
+				final_velocity_direction="at rest";
+			}
+			if (v>0){
+				final_velocity_sign="positive";
+			}
+			else if (v<0){
+				final_velocity_sign="negative";
+			}
+			else if (v==0){
+				final_velocity_sign="0";
+			}
+			if (a*u>0){
+				decelerate_accelerate="accelerates all the way till the current time (and is still accelerating)";
+			}
+			else if (a*u<0){
+				decelerate_accelerate="decelerates";
+			}
+			else if (a==0){
+				decelerate_accelerate="continues to moves with uniform velocity";
+			}
+			if (a*u>0){
+				acceleration_u_opp_same_sign="of the same sign as u, hence same direction as u";
+			}
+			else if (a*u<0){
+				acceleration_u_opp_same_sign="of opposite sign compared to u, hence opposite direction compared to u";
+			}
+			else if (a==0){
+				acceleration_u_opp_same_sign="0";
+			}
+			if (v*u>0){
+				v_u_opp_same_sign="of the same sign as u, hence same direction as u";
+			}
+			else if (v*u<0){
+				v_u_opp_same_sign="of opposite sign compared to u, hence opposite direction compared to u";
+			}
+			else if (v==0){
+				v_u_opp_same_sign="0";
+			}
+
+			motion_description1.innerHTML="Object is initially "+ initial_velocity_direction + ".";
+			motion_description1a.innerHTML="Object is initially "+ initial_velocity_direction + ".";
+			motion_inference1.innerHTML="Initial velocity u is "+ initial_velocity_sign + ".";
+			motion_description2.innerHTML="It then "+ decelerate_accelerate + ".";
+			motion_description2a.innerHTML="It then "+ decelerate_accelerate + ".";
+			motion_inference2.innerHTML="Acceleration a is "+ acceleration_u_opp_same_sign + ".";
+			
+			if (a*u<0){
+				if(v*u<0){
+					motion_description3.innerHTML="It slows down until it is momentarily at rest (velocity 0) before it changes direction and starts " + final_velocity_direction + ", before arriving at the current location at this current time t.";
+					motion_description3a.innerHTML="It slows down until it is momentarily at rest (velocity 0) before it changes direction and starts " + final_velocity_direction + ", before arriving at the current location at this current time t.";
+				}
+				if(v*u>0){
+					motion_description3.innerHTML="At the current time t, it is slowing down (decelerating) but still moving in the same direction as its initial velocity.";
+					motion_description3a.innerHTML="At the current time t, it is slowing down (decelerating) but still moving in the same direction as its initial velocity.";
+				}
+				if(v==0){
+					motion_description3.innerHTML="It has come to rest at the current time t. (Note that right after this t it will start moving in the opposite direction.)";
+					motion_description3a.innerHTML="It has come to rest at the current time t. (Note that right after this t it will start moving in the opposite direction.)";
+				}
+				motion_inference3.innerHTML="Final velocity v is "+ v_u_opp_same_sign + ".";
+			}
+			else {
+				motion_description3.innerHTML="";
+				motion_description3a.innerHTML="";
+				motion_inference3.innerHTML="";
+			}
+			
+			description_of_motion.style.display="inline";
+			inference_of_motion.style.display="inline";
+			
+		}
+		
+
+
+    </script>
+
+</div>
+<div class="footer_container" >
+<div class="wrapper">
+&copy; Copyright 2017 <a href="index.html">Damian Boh</a> | All Rights Reserved
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+</div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

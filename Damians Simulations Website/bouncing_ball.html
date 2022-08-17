@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<!--
+    Copyright 2017, Simulations and Website Template by Damian Boh
+    This work by Damian Boh is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+	Please visit http://creativecommons.org/licenses/by-nc-sa/4.0/ for more information.
+-->
+
+<html>
+<head>
+	<title>Bouncing Ball</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico" >
+</head>
+<body style="background-color:#c0c0c0;">
+<div class="header_container" >
+<div class="wrapper">
+<img  class = "header_title2" src="images/icon.svg" style="width:36px;">&nbsp;&nbsp;
+<span class = "header_title" >Damian's Physics Simulations</span>
+<span class="header_email">Email: damianboh.ck@gmail.com</span>
+</div>
+</div>
+<div class="header_row">
+	<a class="toggleMenu" href="#">Menu</a>
+</div>
+<div class="header_row sticky">
+<ul class="wrapper nav">
+	<li>
+		<a href="index.html">Home</a>
+	</li>
+
+	<li>
+		<a href="simulations.html">Simulations List</a>
+	</li>
+	<li  class="test">
+		<a href="#">Mechanics</a>
+		<ul>
+			<li>
+				<a href="1D_kinematics.html">1D Motion with Constant Acceleration</a>
+			</li>
+			<li>
+				<a href="bouncing_ball.html">Bouncing Ball</a>
+			</li>
+			<li>
+				<a href="terminal_velocity.html">Terminal Velocity</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		
+	<li>
+		<a href="#">Light</a>
+		<ul>
+			<li>
+				<a href="convex_lens.html">Ray Diagram of Convex Lens</a>
+			</li>
+			<li>
+				<a href="#">Refraction</a>
+			</li>
+			
+		</ul>
+	</li>
+	<li>
+		<a href="#">Waves</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#">Thermal Physics</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#">Electricity & Magnetism</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="contact.html">Contact</a>
+	</li>
+
+</ul>
+
+</div>
+	
+<!--############################## body here ###############################-->
+	
+	<div class="simulation_container" id="whole_body" >
+	<br>
+    
+	<p class="simulation_headers" >Bouncing Ball</p>
+	<div style="margin-left:2%;margin-right:2%;">
+	Enter initial height h<sub>i</sub> above the ground at which ball is thrown or dropped. <u>Define upwards to be positive.</u>
+	Please enter only positive values for height as heights
+	are all measured above (upwards from) the ground. Then enter initial velocity u of ball.
+	If you are throwing the ball <u>upwards</u>, enter a <u>positive</u> u, if throwing the ball <u>downwards</u>,
+	enter a <u>negative</u> u, if dropping the ball from <u>rest</u>, enter <u>0</u> for u. During each bounce, the ball may lose energy 
+	(e.g. in the form of sound or heat), so the total energy may decrease after each bounce. You can select the percentage of energy loss during 
+	each bounce using the slider below. You can select 0 (no energy lost) as well. Assume there is no air resistance. 
+	Mass of the object is taken to be 1kg.</div><br>
+	<div class="row" >
+	
+	<div class="7u 12u(mobile)">
+	
+	<div style="text-align:left; -webkit-text-size-adjust:100%;">
+		   <table align="center" border="0" cellpadding="1" cellspacing="1" style="font-weight: bold;font-size:95%;">
+			<tr>			
+				<td>Initial Height h<sub>i</sub> (m): </td>
+				<td><input type="number" id="ip_initial_h" value=""></td>
+			</tr>
+			<tr>
+				<td>Initial Velocity u (ms<sup>-1</sup>):</td>
+				<td><input type="number" id="ip_initial_u" value=""></td>
+			</tr>
+			</table>
+			<br>
+			
+			<center>
+			<b>Percentage of energy loss after <i><u>each</u></i> bounce:<br></b>
+			<input type="range" id="ip_energy_loss" min="0" max="100" step="1" value="0" 
+                oninput="show_energy_loss();" onchange="show_energy_loss();">&nbsp&nbsp<font id="display_energy_loss">0%</font>
+			
+			
+			<br>
+			<input type="button" value="Start" onclick="calculateAll();">
+			<input type="button" value="Reset" onclick="resetAll();">
+			</center>
+			
+
+    </div>
+	
+	
+	<br>
+	
+    <div align="center" style="width:screen.width; margin-left:auto; margin-right:auto; ">
+	<center>	
+        <!--<img src="NewtonDrawing.jpg" width="500" height="500" style="position:absolute;">-->
+        <canvas id="trailCanvas" border="100"  height="120" style="position:absolute;width:screen.width;"></canvas>
+        <canvas id="theCanvas"  height="120" style="position:relative;width:screen.width;">
+            Canvas not supported; please update your browser.
+        </canvas>
+		<br>
+		<br>
+		<div id="animation_current_status" style="font-size:80%;">
+			Current Displacement s: 0m <br>
+			Current Time t: 0s <br>
+		</div>
+		<br>
+			
+		Animation Speed: 
+        <input type="range" id="animation_speed" min="10" max="150" step="1" value="90" 
+                oninput="showSpeed();" onchange="showSpeed();">
+		<input type="button" value="Start Animation" onclick="calculateAll();">
+		<input type="button" id ="pause_resume_button" value="Pause" onclick="pause_resume_animation();">
+		<div hidden>
+		<br>Set positive as:
+		<input type="checkbox" id="checkbox_right" style="zoom:1.5;" name="Solution1" onchange="toggleRight();"><font style="color:black">Right</font></input>
+		<input type="checkbox" id="checkbox_upwards" style="zoom:1.5;" name="Solution2" onchange="toggleUpwards();"><font style="color:black">Upwards</font></input>
+		</div>
+		</center>
+		<br>
+	</div>
+    </div>
+	<div class="5u 12u(mobile)">
+		
+		<canvas id="displacement_graph" height="250" width="300" style="position:absolute;"></canvas>
+		<canvas id="displacement_axis"  height="250" width="300" style="position:relative;"></canvas><br>
+		<canvas id="velocity_graph" height="250" width="300" style="position:absolute;"></canvas>
+		<canvas id="velocity_axis"  height="250" width="300" style="position:relative;"></canvas><br>
+		<canvas id="energy_graph" height="250" width="300" style="position:absolute;"></canvas>
+		<canvas id="energy_axis"  height="250" width="300" style="position:relative;"></canvas>
+		<canvas id="energy_graph_key" height="60" width="300"></canvas>
+		
+	</div>
+	</div>
+			
+	<div hidden class="simulation_container2" id="whole_body" >
+	
+	<div id="solution_checkboxes">
+	<br>
+	<input type="checkbox" id="checkbox1" style="zoom:1.5;" name="Solution1" onchange="toggleSolution1();"><font style="color:blue;font-weight: bold;font-size:120%;">Solution 1</font></input>
+	<input type="checkbox" id="checkbox2" style="zoom:1.5;" name="Solution2" onchange="toggleSolution2();"><font style="color:blue;font-weight: bold;font-size:120%;">Solution 2</font></input>
+	<br>
+	</div>
+	
+	<h3 id="solution_header" style="color:blue;font-weight: bold;font-size:120%;">Solution:<br></h3>
+	<div id="display_calculated_values" style="color:blue;font-weight: bold;font-size:120%;">
+	<br>
+	</div>
+	
+
+	
+	<div id="display_energy_equations">
+		<h3>Energy Equations</h3>
+		<div style="font-size:150%;font-weight:normal;">
+		Potential Energy PE = mgh <br>
+		Kinetic Energy KE = <sup>1</sup>/<sub>2</sub> mv<sup>2</sup><br>
+		</div>
+	</div>
+	
+	<div id="display_explanation_header" style="font-size:100%; font-weight: normal;">
+		<h3>Explanation and Steps</h3>
+		test
+	<br><br>
+	</div>
+	
+	<div id="display_explanation_1" style="font-size:100%;font-weight: normal;color:blue;"></div>
+	
+	<div id="display_2_solutions_v_notice" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	test
+	</div>
+	<div id="display_2_solutions_u_notice" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	test
+	</div>
+	
+	<div id="display_explanation_middle" style="font-size:100%;font-weight: normal;">
+	<br><br>
+	test
+	<br><br>
+	</div>
+	
+	<div id="display_explanation_2" style="font-size:100%;font-weight: normal;color:blue;"></div>
+	
+	<div id="display_2_v_t_interpretation" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	test
+	<br><br>
+	</div>
+	<div id="display_2_u_t_interpretation" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	test
+	<br><br>
+	</div>	
+	
+	
+	<div id="description_of_motion" style="font-size:100%;font-weight: normal;color:red;">
+		<h3><font style="color:black;">Description of Motion</font></h3>
+		<div id="motion_description1"></div>
+		<div id="motion_description2"></div>
+		<div id="motion_description3"></div>
+	<br><br>
+	</div>
+	
+	
+	<div id="inference_of_motion" style="font-size:100%;font-weight: normal;color:red;">
+		<h3><font style="color:black;">How is each description statement inferred?</font></h3>
+		   <table align="center" border="1" cellpadding="1" cellspacing="1" style="font-weight: normal;">
+			<tr>			
+				<td style="font-size:120%;"><b>Description of Motion</b></td>
+				<td style="font-size:120%;"><b>Inference</b></td>
+			</tr>
+			<tr>
+				<td><div id="motion_description1a"></div></td>
+				<td><div id="motion_inference1"></div></td>
+			</tr>
+			<tr>			
+				<td><div id="motion_description2a"></div></td>
+				<td><div id="motion_inference2"></div></td>
+			</tr>
+			<tr>			
+				<td><div id="motion_description3a"></div></td>
+				<td><div id="motion_inference3"></div></td>
+			</tr>
+			</table>
+			<br>
+    </div>
+	</div>
+	</div>
+	<br><br>
+	<div id="device_size" class="device_size_info" style="font-size:80%;font-weight:"></div>
+	
+	
+
+    
+
+<div class="footer_container" >
+<div class="wrapper">
+&copy; Copyright 2017 <a href="index.html">Damian Boh</a> | All Rights Reserved
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />
+This work by Damian Boh is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+</div>
+
+<script type="text/javascript" src="scripts/bouncing_ball.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<!--
+    Copyright 2017, Simulations and Website Template by Damian Boh
+    This work by Damian Boh is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+	Please visit http://creativecommons.org/licenses/by-nc-sa/4.0/ for more information.
+-->
+
+<html>
+<head>
+	<title>1D Motion with Constant Acceleration</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico" >
+</head>
+<body style="background-color:#c0c0c0;">
+<div class="header_container" >
+<div class="wrapper">
+<img  class = "header_title2" src="images/icon.svg" style="width:36px;">&nbsp;&nbsp;
+<span class = "header_title" >Damian's Physics Simulations</span>
+<span class="header_email">Email: damianboh.ck@gmail.com</span>
+</div>
+</div>
+<div class="header_row">
+	<a class="toggleMenu" href="#">Menu</a>
+</div>
+<div class="header_row sticky">
+<ul class="wrapper nav">
+	<li>
+		<a href="index.html">Home</a>
+	</li>
+
+	<li>
+		<a href="simulations.html">Simulations List</a>
+	</li>
+	<li  class="test">
+		<a href="#">Mechanics</a>
+		<ul>
+			<li>
+				<a href="1D_kinematics.html">1D Motion with Constant Acceleration</a>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test1</a></li>
+					<li><a href="#">Test2</a></li>
+					<li><a href="#">Test3</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		
+	<li>
+		<a href="#">Light</a>
+		<ul>
+			<li>
+				<a href="convex_lens.html">Ray Diagram of Convex Lens</a>
+			</li>
+			<li>
+				<a href="#">Refraction</a>
+			</li>
+			
+		</ul>
+	</li>
+	<li>
+		<a href="#">Waves</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#">Thermal Physics</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#">Electricity & Magnetism</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="contact.html">Contact</a>
+	</li>
+
+</ul>
+
+</div>
+	
+<!------------------------------------------------------------ body here --------------------------------->
+	
+	<div class="simulation_container" id="whole_body" >
+	<br>
+    <!--<h1 style="font-size:24px; text-align:center;">Kinematics: 1D Motion with Constant Acceleration</h1>-->
+	<p class="simulation_headers" > Kinematics: 1D Motion with Constant Acceleration</p>
+	
+	<div class="row" >
+	
+	<div class="7u 12u(mobile)">
+	<div style="margin-left:2%;margin-right:2%;">
+	Enter exactly 3 values below to solve for the other 2 values.
+	Define positive to be right or upwards, negative to be left or downwards.
+	<u>Scroll down after calculation</u> to view solution and explanations.</div>
+	<br>
+	
+	<br>
+
+	<div style="text-align:left; -webkit-text-size-adjust:100%;">
+		   <table align="center" border="0" cellpadding="1" cellspacing="1" style="font-weight: bold;font-size:95%;">
+			<tr>
+				<td>Initial Velocity u (ms<sup>-1</sup>):</td>
+				<td><input type="number" id="ip_initial_u" value=""></td>
+			</tr>
+			<tr>			
+				<td>Final Velocity v (ms<sup>-1</sup>): </td>
+				<td><input type="number" id="ip_final_v" value=""></td>
+			</tr>
+			<tr>			
+				<td>Acceleration a (ms<sup>-2</sup>): </td>
+				<td><input type="number" id="ip_acceleration_a" value=""></td>
+			</tr>
+			<tr>			
+				<td>Time t (s): </td>
+				<td><input type="number" id="ip_time_t" value=""></td>
+			</tr>
+			<tr>			
+				<td>Displacement s (m): </td>
+				<td><input type="number" id="ip_displacement_s" value=""></td>
+			</tr>
+		   </table>
+			<br>
+			<center>
+			<input type="button" value="Calculate" onclick="calculateAll();">
+			<input type="button" value="Reset" onclick="resetAll();">
+			</center>
+			
+
+    </div>
+	
+	
+	<br>
+	
+    <div align="center" style="width:screen.width; margin-left:auto; margin-right:auto; ">
+	<center>	
+        <!--<img src="NewtonDrawing.jpg" width="500" height="500" style="position:absolute;">-->
+        <canvas id="trailCanvas" border="100"  height="120" style="position:absolute;width:screen.width;"></canvas>
+        <canvas id="theCanvas"  height="120" style="position:relative;width:screen.width;">
+            Canvas not supported; please update your browser.
+        </canvas>
+		<br>
+		<br>
+		<div id="animation_current_status" style="font-size:80%;">
+			Current Displacement s: 0m <br>
+			Current Time t: 0s <br>
+		</div>
+		<br>
+			
+		Animation Speed: 
+        <input type="range" id="animation_speed" min="10" max="150" step="1" value="60" 
+                oninput="showSpeed();" onchange="showSpeed();">
+		<input type="button" value="Start Animation" onclick="calculateAll();">
+		<input type="button" id ="pause_resume_button" value="Pause" onclick="pause_resume_animation();">
+		<br>(Positive is assumed to be right for the animation above.)
+		</center>
+		<br>
+	</div>
+    </div>
+	<div class="5u 12u(mobile)">
+		
+		<canvas id="displacement_graph" height="250" width="300"></canvas>
+		<canvas id="velocity_graph" height="250" width="300"></canvas>
+		
+	</div>
+	</div>
+			
+	<div class="simulation_container2" id="whole_body" >
+	
+	<div id="solution_checkboxes">
+	<br>
+	<input type="checkbox" id="checkbox1" style="zoom:1.5;" name="Solution1" onchange="toggleSolution1();"><font style="color:blue;font-weight: bold;font-size:120%;">Solution 1</font></input>
+	<input type="checkbox" id="checkbox2" style="zoom:1.5;" name="Solution2" onchange="toggleSolution2();"><font style="color:blue;font-weight: bold;font-size:120%;">Solution 2</font></input>
+	<br>
+	</div>
+	
+	<h3 id="solution_header" style="color:blue;font-weight: bold;font-size:120%;">Solution:<br></h3>
+	<div id="display_calculated_values" style="color:blue;font-weight: bold;font-size:120%;">
+	<br>
+	</div>
+	
+	<div id="display_solution_not_valid" style="color:blue;font-weight: bold;font-size:120%;">
+	<div style="color:red;"><u>SOLUTION NOT VALID AS TIME t < 0.</u></div> 
+	Steps for calculating this are still shown below for reference
+	but remember this is not a valid solution so please check your 
+	entered values again.
+	<br>
+	</div>
+	
+	
+	
+	<div id="display_four_equations">
+		<h3>Four Equations of Motion</h3>
+		<div style="font-size:150%;font-weight:normal;">
+		v = u + at <br>
+		v<sup>2</sup> = u<sup>2</sup> + 2as <br>
+		s = ut + <sup>1</sup>/<sub>2</sub> at<sup>2</sup><br>
+		s = <sup>1</sup>/<sub>2</sub> (u+v) t<br>
+		</div>
+	</div>
+	
+	<div id="display_explanation_header" style="font-size:100%; font-weight: normal;">
+		<h3>Explanation and Steps</h3>
+		Generally, you know the values of 3 variables. First look for the equation that
+		contains all 3 variables that you know in it. Each equation of motion has exactly 4 variables,
+		if you know 3 of the variables you can calculate the 4th variable inside this equation directly.
+		Choose the equation that is most easy to manipulate, for example you should avoid equations with
+		squares if possible unless you have no other choice.
+	<br><br>
+	</div>
+	
+	<div id="display_explanation_1" style="font-size:100%;font-weight: normal;color:blue;"></div>
+	
+	<div id="display_2_solutions_v_notice" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	<b>Notice that v can take on 2 values, one positive and one negative</b> as it is the square root of u<sup>2</sup> + 2as.
+	(Recall that squaring a number and its negative will give the same result.) 
+	The other value of v is in the other solution which you can view by clicking on the corresponding checkbox above.
+	Each of the solutions will give rise to a t value each. One of the solutions might not be valid if the 
+	t calculated in the next step is negative as time cannot be negative. If both values of v give positive t then 
+	there are 2 valid solutions.
+	</div>
+	<div id="display_2_solutions_u_notice" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	<b>Notice that u can take on 2 values, one positive and one negative</b> as it is the square root of v<sup>2</sup> - 2as.
+	(Recall that squaring a number and its negative will give the same result.) 
+	The other value of u is in the other solution which you can view by clicking on the corresponding checkbox above.
+	Each of the solutions will give rise to a t value each. One of the solutions might not be valid if the 
+	t calculated in the next step is negative as time cannot be negative. If both values of u give positive t then 
+	there are 2 valid solutions.
+	</div>
+	
+	<div id="display_explanation_middle" style="font-size:100%;font-weight: normal;">
+	<br><br>
+		So now you have 4 variables. Now look for an equation that contains
+		the final variable that you still do not know. The values of the other 3 variables in this equation
+		should be something you know already as you only have one unknown variable at this point. Again try
+		to look for the equation that is easiest to manipulate.
+	<br><br>
+	</div>
+	
+	<div id="display_explanation_2" style="font-size:100%;font-weight: normal;color:blue;"></div>
+	
+	<div id="display_2_v_t_interpretation" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	<b><u>Physically what does it mean to have 2 valid solutions of v and t for the same u, a and s?</u></b><br>
+	The object starts off with initial velocity u and continues travelling with acceleration a. On the way it passes by 
+	the point with displacement s with a certain velocity v<sub>1</sub>, 
+	at a certain time t<sub>1</sub>. It travels further before turning back to the same point at the same displacement s,
+	at a later time t<sub>2</sub> with a velocity v<sub>2</sub>. But this time it is travelling in the opposite direction 
+	as the previous time when it passes through this point as it has turned backward and changed direction. Hence this v<sub>2</sub>
+	is not the same as the previous v<sub>1</sub>. <br><br>Acceleration a is the same throughout the whole motion and the object passes through 
+	the same point of displacement s at two different times and two different velocities. Hence for the same u, a and s 
+	there are 2 sets of solutions: v<sub>1</sub>,t<sub>1</sub> and v<sub>2</sub>, t<sub>2</sub>. Play the animation for both solutions to 
+	see how the same point is reached at 2 different times.
+	<br><br>
+	</div>
+	<div id="display_2_u_t_interpretation" style="font-size:100%;font-weight: normal;color:blue;">
+	<br><br>
+	<b><u>Physically what does it mean to have 2 valid solutions of u and t for the same v, a and s?</u></b><br>
+	In one of the solutions, the object starts off with initial velocity u<sub>1</sub> and travels towards the point at displacement s at an acceleration a in the same direction.  
+	It reaches displacement s at t<sub>1</sub> with final velocity v. In the other solution, the object starts off with a different initial velocity 
+	u<sub>2</sub> which moves <i>away</i> from the point at displacement s at first. (Meaning u<sub>2</sub> is in the opposite direction and sign as u<sub>1</sub>.)
+	It travels with the same acceleration a directed towards s, hence at some point it would slow down and change direction to move towards displacement s.
+	It will reach displacement s after passing through its starting point, at time t<sub>2</sub> but with same final velocity v<sub>1</sub><br><br>
+	In both cases the object reaches the same displacement s with 2 different start initial velocities u, and arrive at two different times.
+	Hence there are 2 sets of solutions: u<sub>1</sub>,t<sub>1</sub> and u<sub>2</sub>, t<sub>2</sub>. Play the animation for both solutions to 
+	see how the same point is reached at 2 different times but with 2 different initial velocities u in opposite directions.
+	<br><br>
+	</div>	
+	
+	
+	<div id="description_of_motion" style="font-size:100%;font-weight: normal;color:red;">
+		<h3><font style="color:black;">Description of Motion</font></h3>
+		<div id="motion_description1"></div>
+		<div id="motion_description2"></div>
+		<div id="motion_description3"></div>
+	<br><br>
+	</div>
+	
+	
+	<div id="inference_of_motion" style="font-size:100%;font-weight: normal;color:red;">
+		<h3><font style="color:black;">How is each description statement inferred?</font></h3>
+		   <table align="center" border="1" cellpadding="1" cellspacing="1" style="font-weight: normal;">
+			<tr>			
+				<td style="font-size:120%;"><b>Description of Motion</b></td>
+				<td style="font-size:120%;"><b>Inference</b></td>
+			</tr>
+			<tr>
+				<td><div id="motion_description1a"></div></td>
+				<td><div id="motion_inference1"></div></td>
+			</tr>
+			<tr>			
+				<td><div id="motion_description2a"></div></td>
+				<td><div id="motion_inference2"></div></td>
+			</tr>
+			<tr>			
+				<td><div id="motion_description3a"></div></td>
+				<td><div id="motion_inference3"></div></td>
+			</tr>
+			</table>
+			<br>
+    </div>
+	</div>
+	</div>
+	<br><br>
+	<div id="device_size" class="device_size_info" style="font-size:80%;font-weight:"></div>
+	
+	
+
+    
+
+<div class="footer_container" >
+<div class="wrapper">
+&copy; Copyright 2017 <a href="index.html">Damian Boh</a> | All Rights Reserved
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />
+This work by Damian Boh is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+</div>
+
+<script type="text/javascript" src="scripts/1d_kinematics.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

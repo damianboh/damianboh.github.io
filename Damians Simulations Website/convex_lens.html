@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<!--
+    Copyright 2017, Simulations and Website Template by Damian Boh
+    This work by Damian Boh is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+	Please visit http://creativecommons.org/licenses/by-nc-sa/4.0/ for more information.
+-->
+
+<html>
+<head>
+	<title>Ray Diagram of Thin Convex Lens</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico" >
+</head>
+<body style="background-color:#c0c0c0;">
+<div class="header_container" >
+<div class="wrapper">
+<img  class = "header_title2" src="images/icon.svg" style="width:36px;">&nbsp;&nbsp;
+<span class = "header_title" >Damian's Physics Simulations</span>
+<span class="header_email">Email: damianboh.ck@gmail.com</span>
+</div>
+</div>
+<div class="header_row">
+	<a class="toggleMenu" href="#">Menu</a>
+</div>
+<div class="header_row sticky">
+<ul class="wrapper nav">
+	<li>
+		<a href="index.html">Home</a>
+	</li>
+
+	<li>
+		<a href="simulations.html">Simulations List</a>
+	</li>
+	<li  class="test">
+		<a href="#">Mechanics</a>
+		<ul>
+			<li>
+				<a href="1D_kinematics.html">1D Motion with Constant Acceleration</a>
+			</li>
+			<li>
+				<a href="bouncing_ball.html">Bouncing Ball</a>
+			</li>
+			<li>
+				<a href="terminal_velocity.html">Terminal Velocity</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		
+	<li>
+		<a href="#">Light</a>
+		<ul>
+			<li>
+				<a href="convex_lens.html">Ray Diagram of Thin Convex Lens</a>
+			</li>
+			<li>
+				<a href="#">Refraction</a>
+			</li>
+			
+		</ul>
+	</li>
+	<li>
+		<a href="#">Waves</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#">Thermal Physics</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#">Electricity & Magnetism</a>
+		<ul>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Test</a>
+				<ul>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+					<li><a href="#">Test</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="contact.html">Contact</a>
+	</li>
+
+</ul>
+
+</div>
+	
+<!------------------------------------------------------------ body here --------------------------------->
+	
+	<div class="simulation_container" id="whole_body" >
+	<br>
+    <!--<h1 style="font-size:24px; text-align:center;">Kinematics: 1D Motion with Constant Acceleration</h1>-->
+	<p class="simulation_headers" >Ray Diagram of Thin Convex Lens</p>
+	
+	
+	
+	
+		<div id="initial_instructions" style="margin-left:2%;margin-right:2%;">
+		Enter 2 distances (f,u,v) and 1 height (h1,h2) to calculate the 3rd distance and 2nd height. Distances are measured from
+		the optical centre of lens. To standardize enter only positive values for f,u and h1 so object is always real and upright.
+		If you enter v and h2 together, make sure both have the same sign, either positive or negative. If both height fields are left
+		blank then object height will be set to a default value of 10cm.
+		<br>
+		</div>
+		<br>
+		<div class="row" >
+		<div class="7u 12u(mobile)">
+		<div id="form_table" style="text-align:left; -webkit-text-size-adjust:100%;">
+			   <table align="center" border="0" cellpadding="1" cellspacing="1" style="font-weight: bold;font-size:95%;">
+				<tr>
+					<td>Focal Length f (cm): </td>
+					<td><input type="number" id="ip_f" value=""></td>
+				</tr>
+				<tr>			
+					<td>Object Dist u (cm): </td>
+					<td><input type="number" id="ip_u" value=""></td>
+				</tr>
+				<tr>			
+					<td>Image Dist v (cm): </td>
+					<td><input type="number" id="ip_v" value=""></td>
+				</tr>
+				<tr>			
+					<td>Object Height h1 (cm): </td>
+					<td><input type="number" id="ip_h_object" value=""></td>
+				</tr>
+				<tr>			
+					<td>Image Height h2 (cm): </td>
+					<td><input type="number" id="ip_h_image" value=""></td>
+				</tr>
+			   </table>
+				<br>
+				<center>
+				<input type="button" value="Calculate" onclick="calculateAll();">
+				<input type="button" value="Reset" onclick="resetAll();">
+				</center>
+				
+
+		</div>
+		
+		
+		
+		
+		<div align="center" style="width:screen.width; margin-left:auto; margin-right:auto; ">
+		
+		
+		<center>		
+			<input type="checkbox" id="checkbox1" style="zoom:1.5;" onchange="switchMode();">Move object freely by dragging it yourself<br>		
+			<div id="zoom_scaling" >
+			<p align="left" style="margin-left:1%;margin-right:1%;">			
+				Focal length f and object height h1 are both set to 10cm. The rest changes according to how you drag the object.
+				</p>
+				<table align="center" border="0" cellpadding="1" cellspacing="1" style="font-weight: normal;font-size:95%;">
+				<tr>
+					<td>Horizontal Zoom: </td>
+					<td><input type="range" id="horizontal_zoom" min="0.1" max="0.49" step="0.005" value="0.2" 
+                 oninput="zoom_h();" onchange="zoom_h();"></td>
+				</tr>
+				<tr>			
+					<td>Vertical Zoom: </td>
+					<td><input type="range" id="vertical_zoom" min="0.1" max="0.49" step="0.005" value="0.2" 
+                oninput="zoom_v();"  onchange="zoom_v();"></td>
+				</tr>
+				<tr>			
+					<td>Both: </td>
+					<td><input type="range" id="both_zoom" min="0.1" max="0.49" step="0.005" value="0.2" 
+                oninput="zoom_both();" onchange="zoom_both();"></td>
+				</tr>
+				</table>
+			  
+				
+				
+			    </div>
+			<canvas id="trailCanvas" border="100"  height="300" style="position:absolute;width:screen.width;"></canvas>
+			<canvas id="theCanvas"  height="300" style="position:relative;width:screen.width;">
+				Canvas not supported; please update your browser.
+			</canvas>
+				
+		</center>
+		</div>
+		</div>
+	
+	
+	<div class="5u 12u(mobile)">
+		
+		<h3 id="solution_header" style="color:blue;font-weight: bold;font-size:120%;"><u>Solution</u><br></h3>
+		<div id="display_calculated_values" style="color:blue;font-weight: ;font-size:100%;">
+		Focal Length f = <br>
+		Object Dist u = <br>
+		Image Dist v = <br>
+		Object Height h1 = <br>
+		Image Height h2 = <br>
+		<br>
+		</div>
+		<h3 id="description_header" style="color:red;font-weight: bold;font-size:120%;"><u>Description</u><br></h3>
+		<div id="description" style="color:red;font-weight: ;font-size:100%;">
+		<br>
+		</div>
+		<h3 id="application_examples_header" style="color:red;font-weight: bold;font-size:120%;"><u>Application Examples</u><br></h3>
+		<div id="application_examples" style="color:red;font-weight: ;font-size:100%;">
+		<br>
+		</div>
+	
+	</div>
+	</div>
+	</div>	
+</div>	
+	<div class="simulation_container2" id="whole_body" >
+
+
+	</div>
+	
+	
+	
+	
+	
+
+	</div>
+	</div>
+	<br><br>
+	<div id="device_size" class="device_size_info" style="font-size:80%;font-weight:"></div>
+	
+	
+
+    
+
+<div class="footer_container" >
+<div class="wrapper">
+&copy; Copyright 2017 <a href="index.html">Damian Boh</a> | All Rights Reserved
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />
+This work by Damian Boh is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+</div>
+
+<script type="text/javascript" src="scripts/convex_lens.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+		<script>
+		
+
+            
+// Return the x pixel for a graph point for velocity
+        function getXPixel(val) {
+            // uses the getMaxX() function
+            return (val/t *(velocity_graph.width - xPadding - x_offset) + xPadding); 
+			// current time over total time * total height of line graph
+			// xPadding needed to make space for labelling of y-axis
+			// x_offset needed so graph will not go out of canvas
+        }
+            
+        // Return the y pixel for a graph point for velocity
+        function getYPixel_velocity(val) {
+            return (velocity_graph.height - yPadding - (((val-min_velocity)/(max_velocity-min_velocity))*(velocity_graph.height - yPadding - y_offset)));
+        }
+		
+        
+		function drawAxisVelocity() {        
+			velocityContext.lineWidth = 2;
+			velocityContext.strokeStyle = '#333';
+			velocityContext.font = 'bold 10pt sans-serif';
+			velocityContext.textAlign = "center";
+			velocityContext.textBaseline = "top";
+			
+			// title of graph // label above center of y-axis, not center of whole canvas
+			velocityContext.fillText("Velocity-Time Graph", (velocity_graph.width-xPadding)/2+xPadding, 0);
+			
+			velocityContext.textAlign = "left";
+					
+			// draw the axes
+			arrow(velocityContext, xPadding, velocity_graph.height - yPadding + 5, xPadding, 0,  false, true); // y axis (doesn't shift)
+			velocityContext.fillText("s/m", xPadding+6, 0);
+			
+			velocityContext.textAlign = "right";
+			velocityContext.textBaseline = "bottom";
+			
+			// x axis (shifts according to where is y = 0)
+			if (max_velocity==undefined){
+				arrow(velocityContext, xPadding-5, velocity_graph.height - yPadding, velocity_graph.width, velocity_graph.height - yPadding, false, true );
+				//velocityContext.lineTo(velocity_graph.width, velocity_graph.height - yPadding); //x-axis
+				velocityContext.fillText("t/s", velocity_graph.width, velocity_graph.height - yPadding - 5);
+			}
+	
+			else if (max_velocity!=undefined){
+				arrow(velocityContext, xPadding-5, getYPixel_velocity(0), velocity_graph.width, getYPixel_velocity(0), false, true);
+				velocityContext.fillText("t/s", velocity_graph.width, getYPixel_velocity(0) - 5);
+			}
+			velocityContext.stroke();
+		}
+		
+		function labelAxisVelocity() {
+				velocityContext.font = 'italic 8pt sans-serif';
+				velocityContext.textAlign = "right";
+                velocityContext.textBaseline = "top";
+				
+                //label origin
+				velocityContext.fillText(0, xPadding-5, getYPixel_velocity(0));
+				
+				velocityContext.font = 'italic 8pt sans-serif';
+				velocityContext.textAlign = "center";
+                velocityContext.textBaseline = "alphabetic";
+				
+                // label x axis values
+                for(var i = 1; i < 4; i ++) {
+                   
+                    velocityContext.fillText((t/3*i).toPrecision(3), getXPixel(t/3*i), getYPixel_velocity(0) + 20);
+					// mark out the axis
+					velocityContext.strokeStyle = '#000';
+					velocityContext.beginPath();
+					velocityContext.moveTo(getXPixel(t/3*i), getYPixel_velocity(0) - 5 );
+					velocityContext.lineTo(getXPixel(t/3*i), getYPixel_velocity(0) + 5);
+				   	velocityContext.stroke();
+                }
+                
+                // label y axis values
+				velocityContext.textAlign = "right";
+                velocityContext.textBaseline = "middle";
+                
+                for(var i = 0; i < 4; i ++) {
+                    velocityContext.fillText(((max_velocity-min_velocity)/3*i+min_velocity).toPrecision(3), xPadding - 10, getYPixel_velocity(((max_velocity-min_velocity)/3*i+min_velocity)));
+					// mark out the axis
+					velocityContext.strokeStyle = '#000';
+					velocityContext.beginPath();
+					velocityContext.moveTo(xPadding - 5, getYPixel_velocity(((max_velocity-min_velocity)/3*i+min_velocity)));
+					velocityContext.lineTo(xPadding + 5, getYPixel_velocity(((max_velocity-min_velocity)/3*i+min_velocity)));
+				   	velocityContext.stroke();
+                }
+		}
+		
+				
+		function initializeVelocityGraph() {
+			velocityContext.clearRect(0, 0, velocity_graph.width, velocity_graph.height);
+			drawAxisVelocity();
+			labelAxisVelocity();
+			t_previous = 0;
+			s_previous = 0;
+		}
+		
+		function drawVelocityGraph() {
+				
+				
+                
+                velocityContext.strokeStyle = '#f00';
+                
+                // Draw the line graph point by point
+                velocityContext.beginPath();
+                velocityContext.moveTo(getXPixel(t_previous), getYPixel_velocity(s_previous));
+              
+                velocityContext.lineTo(getXPixel(t_current), getYPixel_velocity(s_current));
+               
+                velocityContext.stroke();
+				
+				t_previous = t_current;
+				s_previous = s_current;
+                
+
+        }
+		
+		<script>
