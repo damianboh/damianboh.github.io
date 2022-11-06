@@ -46,20 +46,18 @@ html {
     font-size: 25px;
     font-family: monospace;
     width: 100%;
-    text-align: center;
-    margin-top: 30px
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-
+@media only screen and (min-width: 768px) {
 #third-heading h1:after {
     content: '';
     border-top: 2px solid;
-    margin: 0 20px 0 0;
+    margin: 15px 0 0 10px;
     flex: 1 0 20px;
 }
-
-#third-heading h1:after {
-    margin: 15px 0 0 10px;
 }
 
 /* ---------------------------------- */
