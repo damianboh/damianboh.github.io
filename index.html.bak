@@ -252,7 +252,7 @@
 									
                                 <p class="card-text">
 									Training an NLP model to classify news into 10 categories, embedding the model in a Python Flask Web App interface 
-									and deploying it onto the Heroku cloud.
+									and deploying it onto the Railway.app cloud.
 								</p>	
 								<a href="https://classifynewscategory.up.railway.app/">
 									<i class="fas fa-external-link-alt" data-tippy-content="Visit Website"></i> 									
@@ -366,7 +366,7 @@
                                 <p class="card-text">
 									Find optimized max sharpe portfolio weights for stock tickers of the user's choosing, according to the Modern Portfolio Theory. 
 									Historical stock prices are obtained from an API to calculate mean returns, volatility and covariance matrix to be used as the optimizer inputs. 
-									Web app built using Streamlit and deployed on Heroku cloud.
+									Web app built using Streamlit and deployed on Railway.app cloud.
 								</p>	
 								<a href="https://damian-portfolio-optimization.streamlit.app/">
 									<i class="fas fa-external-link-alt" data-tippy-content="Visit Website"></i> 									
@@ -402,6 +402,36 @@
 									<i class="fas fa-external-link-alt" data-tippy-content="Visit Website"></i> 									
 								</a>		
 								<a href="https://medium.datadriveninvestor.com/use-github-actions-to-create-a-live-stock-sentiment-dashboard-online-580a08457650">
+									<i class="fab fa-medium" data-tippy-content="Explanation on Medium"></i>
+								</a>	
+								<a href="https://github.com/damianboh/dow_jones_live_stock_sentiment_treemap">
+									<i class="fab fa-github" data-tippy-content="Github repo"></i> 		
+								</a>
+							
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card mb-3 h-100" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <a href="https://damianboh.github.io/omscs_courses_rating_difficulty.html">
+                                <h5 class="card-title"> <i class="fab fa-python" data-tippy-content="Python"></i>
+									Live Georgia Tech OMSCS Course Reviews Dashboard</h5>
+									<img src = "https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+									<img src = "https://img.shields.io/badge/GitHub%20Actions-%232671E5?style=flat-square&logo=githubactions&logoColor=white" />
+									<br><br>
+									
+                                <p class="card-text">
+									 Live dashboard of Georgia Tech's Online Masters of Science in Computer Science (OMSCS) course reviews and ratings.
+                                      This was built using GitHub Actions to run a Python script regularly to pull the data from OMSCentral, clean and aggregate data,
+                                      create interactive plots into a dashboard, before converting the plots to a HTML page and pushing it onto GitHub Pages.
+								</p>	
+								<a href="https://damianboh.github.io/omscs_courses_rating_difficulty.html">
+									<i class="fas fa-external-link-alt" data-tippy-content="Visit Website"></i> 									
+								</a>		
+								<a href="https://medium.datadriveninvestor.com/use-python-to-analyze-georgia-tech-omscs-course-ratings-and-reviews-675a912aceed">
 									<i class="fab fa-medium" data-tippy-content="Explanation on Medium"></i>
 								</a>	
 								<a href="https://github.com/damianboh/dow_jones_live_stock_sentiment_treemap">
