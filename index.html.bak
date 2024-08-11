@@ -36,7 +36,7 @@
                     <a href="https://github.com/damianboh" target="_blank" rel="noopener noreferrer">
 						<img class="connect-elements" src="assets/github.png" data-tippy-content="GitHub"></img>
 					</a>
-					<a href="https://medium.com/@bohmian" target="_blank" rel="noopener noreferrer">
+					<a href="https://damianboh.medium.com/" target="_blank" rel="noopener noreferrer">
 						<img class="connect-elements" src="assets/medium.png" data-tippy-content="Medium" style="filter: invert(100%)"></img>
 					</a>
 					<a href="https://www.linkedin.com/in/damian-boh/" target="_blank" rel="noopener noreferrer">
@@ -48,13 +48,19 @@
                        <h1>Damian Boh</h1>                      
                     <p class="gray-text">
                         Hello, World! <br><br>
-                        I am Damian, a developer and machine learning engineer with a theoretical physics background, 
-						with keen interest in building web/mobile apps, machine learning and IoT. 
-						I greatly enjoy working on my own personal web/mobile app development projects, data science,
-                        and meddling in hardware too! 
-						I am also an ex-physics lecturer and computing trainer 
-                        who enjoys teaching and <a href="https://medium.com/@bohmian/">writing articles</a> 
-						to share my projects with everyone. Let's all learn from one another!
+                        I am Damian, a data scientist and developer with a background in theoretical physics.                       
+                        I am an experienced data scientist in the finance sector, and have also previously led a machine learning team in a tech cybersecurity company. 
+                        I have professional experience in data science, ML engineering, NLP, AI product development and deployment as well as business collaboration and stakeholder communication. I also have working experience in tools such as Hadoop, Spark, Hive, Impala, Flask, Django, Streamlit, Dash, FastAPI, Docker, Linux, GitLab, GitHub Actions, Kafka, MLFlow etc.
+                        I also run a <a href="https://damianboh.medium.com/">personal medium blog</a> where I write tutorials of my data science, machine learning, deep learning and NLP projects together with sharing the source code.
+                        My interest and motivation in writing articles and sharing my knowledge hugely stems from my past teaching experiences as a physics lecturer and computing trainer. 
+                        Similarly I greatly enjoy learning and reading about new technologies and trends as well as gaining insights from other people's projects!
+                        In my free time, I am also a mobile and web app developer who has several apps published on Google Play Store with over 50k downloads and apps on <a href="https://huggingface.co/bohmian">HuggingFace spaces</a>, 
+                        Streamlit cloud and Railway.app. 
+                        I love tinkering with hardware electronics and microcontrollers too. 
+                        I have built drones, robotic cars and arms and a bunch of IoT projects. 
+                        Feel free to check out my personal projects and videos of my robots on this page! Let's all learn from one another!
+                        
+                        
                     </p> 
                    
                 </div>
@@ -190,7 +196,7 @@
 									Chatbot with agent powered by Mistral 7B Instruct LLM for users to ask and compare between ESG policies of different countries. 
                                     Users can also upload their own PDF document, 
                                     or perform web scraping in the app to override the existing country ESG policies database. 
-                                    Various parameters (chunk size, retriever etc) can be adjusted..</p>		
+                                    Various parameters (chunk size, retriever etc) can be adjusted.</p>		
                                
                                 
                                 
