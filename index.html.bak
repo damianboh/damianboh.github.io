@@ -178,7 +178,7 @@
                         <div class="card-body">
                             <a href="https://huggingface.co/spaces/bohmian/esg_countries_chatbot">
                                 <h5 class="card-title"> <i class="fab fa-python" data-tippy-content="Python"></i>
-									LLM Chatbot for Country ESG Policies Comparison</h5>
+									MCP Server for Financial Data</h5>
 									<img src = "https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
                                            <img src = "https://img.shields.io/badge/-MCP_Server-black?style=flat-square&logo=modelcontextprotocol"/>
 									                                
