@@ -48,19 +48,18 @@
                        <h1>Damian Boh</h1>                      
                     <p class="gray-text">
                         Hello, World! <br><br>
-                        I am Damian, a data scientist and developer with a background in theoretical physics.                       
-                        I am an experienced data scientist in the finance sector, and have also previously led a machine learning team in a tech cybersecurity company. 
-                        I have professional experience in data science, ML engineering, NLP, AI product development and deployment as well as business collaboration and stakeholder communication. I also have working experience in tools such as Hadoop, Spark, Hive, Impala, Flask, Django, Streamlit, Dash, FastAPI, Docker, Linux, GitLab, GitHub Actions, Kafka, MLFlow etc.
-                        I also run a <a href="https://damianboh.medium.com/">personal medium blog</a> where I write tutorials of my data science, machine learning, deep learning and NLP projects together with sharing the source code.
+                        I am Damian, a data scientist and developer with a background in theoretical physics. 
+                        I have professional experience in data science, ML engineering, NLP, AI product development and deployment as well as business collaboration and stakeholder communication. 
+                        I am currently in the finance sector, and have previously led a machine learning team in a tech cybersecurity company.
+                        I also have working experience in tools such as Hadoop, Spark, Hive, Impala, Flask, Django, Streamlit, Dash, FastAPI, Docker, Linux, GitLab, GitHub Actions, Kafka, MLFlow etc.
+                        I run a <a href="https://damianboh.medium.com/">personal medium blog</a> where I write tutorials of my data science, machine learning, deep learning and NLP projects together with sharing the source code.
                         My interest and motivation in writing articles and sharing my knowledge hugely stems from my past teaching experiences as a physics lecturer and computing trainer. 
                         Similarly I greatly enjoy learning and reading about new technologies and trends as well as gaining insights from other people's projects!
-                        In my free time, I am also a mobile and web app developer who has several apps published on Google Play Store with over 50k downloads and apps on <a href="https://huggingface.co/bohmian">HuggingFace spaces</a>, 
+                        In my free time, I am a mobile and web app developer who has several apps published on Google Play Store with over 50k downloads and apps on <a href="https://huggingface.co/bohmian">HuggingFace spaces</a>, 
                         Streamlit cloud and Railway.app. 
                         I love tinkering with hardware electronics and microcontrollers too. 
                         I have built drones, robotic cars and arms and a bunch of IoT projects. 
-                        Feel free to check out my personal projects and videos of my robots on this page! Let's all learn from one another!
-                        
-                        
+                        Feel free to check out my personal projects and videos of my robots on this page! Let's all learn from one another!  
                     </p> 
                    
                 </div>
@@ -181,6 +180,30 @@
                                 <h5 class="card-title"> <i class="fab fa-python" data-tippy-content="Python"></i>
 									LLM Chatbot for Country ESG Policies Comparison</h5>
 									<img src = "https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+                                           <img src = "https://img.shields.io/badge/-MCP_Server-black?style=flat-square&logo=modelcontextprotocol"/>
+									                                
+                                <div class="mt-3 mb-3">                                                                        
+                                    <a href="https://github.com/damianboh/fmp_mcp_server">
+                                        <i class="fas fa-code" data-tippy-content="Github repo"></i> 		
+                                    </a>                              
+								</div>
+                                <p class="card-text">
+									A lightweight, production-ready Model Context Protocol (MCP) server that brings real-time financial data 
+                                    from Financial Modeling Prep directly to AI agents or LLM Apps — 
+                                    fundamentals, ratios, price data, earnings transcripts, macro indicators, and more.
+ 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="card mb-3 h-100" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <a href="https://huggingface.co/spaces/bohmian/esg_countries_chatbot">
+                                <h5 class="card-title"> <i class="fab fa-python" data-tippy-content="Python"></i>
+									LLM Chatbot for Country ESG Policies Comparison</h5>
+									<img src = "https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
                                     <img src = "https://img.shields.io/badge/-Streamlit-F29111?style=flat-square&logo=streamlit&logoColor=white" />
                                     <img src = "https://img.shields.io/badge/%F0%9F%A4%97-Transformers-blue.svg?style=flat-square"/>
 									                                
@@ -196,11 +219,7 @@
 									Chatbot with agent powered by Mistral 7B Instruct LLM for users to ask and compare between ESG policies of different countries. 
                                     Users can also upload their own PDF document, 
                                     or perform web scraping in the app to override the existing country ESG policies database. 
-                                    Various parameters (chunk size, retriever etc) can be adjusted.</p>		
-                               
-                                
-                                
-                               
+ 
                             </a>
                         </div>
                     </div>
