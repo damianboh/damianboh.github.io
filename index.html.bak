@@ -176,13 +176,16 @@
                 <div class="col">
                     <div class="card mb-3 h-100" style="max-width: 18rem;">
                         <div class="card-body">
-                            <a href="https://huggingface.co/spaces/bohmian/esg_countries_chatbot">
+                            <a href="https://github.com/damianboh/fmp_mcp_server">
                                 <h5 class="card-title"> <i class="fab fa-python" data-tippy-content="Python"></i>
 									MCP Server for Financial Data</h5>
 									<img src = "https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
                                            <img src = "https://img.shields.io/badge/-MCP_Server-black?style=flat-square&logo=modelcontextprotocol"/>
 									                                
-                                <div class="mt-3 mb-3">                                                                        
+                                <div class="mt-3 mb-3">
+                                    <a href="https://medium.datadriveninvestor.com/build-your-own-financial-data-mcp-server-that-chatgpt-can-talk-to-cec9b68d0b84">
+                                        <i class="fab fa-medium" data-tippy-content="Explanation on Medium"></i>
+                                    </a>                                
                                     <a href="https://github.com/damianboh/fmp_mcp_server">
                                         <i class="fas fa-code" data-tippy-content="Github repo"></i> 		
                                     </a>                              
@@ -208,6 +211,7 @@
                                     <img src = "https://img.shields.io/badge/%F0%9F%A4%97-Transformers-blue.svg?style=flat-square"/>
 									                                
                                 <div class="mt-3 mb-3">
+
                                     <a href="https://huggingface.co/spaces/bohmian/esg_countries_chatbot">
                                         <i class="fas fa-external-link-alt" data-tippy-content="Visit Web App"></i> 									
                                     </a>                                     
